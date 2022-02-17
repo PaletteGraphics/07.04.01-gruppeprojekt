@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single-view</title>
+    <style>
+      @media (min-width: 768px) {
+        #section_1 {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      img {
+        width: 100%;
+      }
+      footer {
+        display: flex;
+        gap: 20px;
+        place-content: center;
+      }
+      .footer_col_2 {
+        display: flex;
+        gap: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"></div>
+        <div class="links"></div>
+      </nav>
+    </header>
+    <main>
+      <button class="back_button">Back</button>
+      <section id="section_1">
+        <div class="col">
+          <div class="single_cd"><img src="AlbumCovers/cd1.png" alt="" /></div>
+        </div>
+        <div class="col">
+          <div class="txt">txt</div>
+          <div class="price">price</div>
+          <button class="buy">Add to Cart</button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer_col_1">
+        <p>Guldbergsgade 29N 2200 København N</p>
+        <p>Gruppe5@stud.kea.dk</p>
+        <p>xx xx xx xx</p>
+      </div>
+      <div class="footer_col_2">
+        <img src="ikoner/Facebook.svg" alt="" />
+        <img src="ikoner/Instagram.svg" alt="" />
+      </div>
+    </footer>
+  </body>
+</html>
