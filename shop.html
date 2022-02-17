@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHOP</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"></div>
+        <div class="links"></div>
+      </nav>
+    </header>
+    <main>
+      <section class="data"></section>
+      <section id="section_1">
+        <h1></h1>
+        <p></p>
+      </section>
+      <section id="section_2">
+        <div id="filter_knapper"></div>
+        <template>
+          <article>
+            <img src="" alt="" />
+            <h2></h2>
+            <p></p>
+          </article>
+        </template>
+      </section>
+    </main>
+    <footer>
+      <div class="col_1"></div>
+      <div class="col_2"></div>
+      <div class="col_3"></div>
+    </footer>
+    <script>
+      const url = "https://cdpassion-da18.restdb.io/rest/albums";
+      const template = document.querySelector("template").content;
+
+      const options = {
+        headers: {
+          "x-apikey": "620e328534fd621565858715",
+        },
+      };
+
+      async function hentData() {
+        const respons = await fetch(url, options);
+        const json = await respons.json();
+        data = json;
+        vis(data);
+      }
+
+      hentData();
+
+      function vis(data) {
+        console.log(data);
+      }
+    </script>
+  </body>
+</html>
