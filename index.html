@@ -31,10 +31,10 @@
         border: 1px solid black;
       }
 
-      body {
+      /* body {
         background-image: url(ikoner/baggrund.svg);
-        background-size: contain;
-      }
+        background-size: cover;
+      } */
 
       #section_1 img {
         display: block;
@@ -153,6 +153,7 @@
 
       function clickCd8() {
         console.log("klik_8");
+        location.href = `singleview.html?id=${hvad._id}`;
       }
 
       function clickCd14() {
