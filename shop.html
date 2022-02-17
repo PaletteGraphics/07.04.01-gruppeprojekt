@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SHOP</title>
   </head>
+  <style>
+    img {
+      max-width: 100%;
+      height: 250px;
+    }
+    .valgt {
+      background-color: aqua;
+    }
+    .liste {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: 10px;
+    }
+
+    article {
+      display: grid;
+      margin-bottom: 5px;
+      padding: 10px;
+      margin-top: 5px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      border-radius: 5px;
+      background-color: #ffffff;
+    }
+  </style>
   <body>
     <header>
       <nav>
@@ -14,18 +39,26 @@
       </nav>
     </header>
     <main>
-      <section class="data"></section>
       <section id="section_1">
         <h1></h1>
         <p></p>
       </section>
       <section id="section_2">
-        <div id="filter_knapper"></div>
+        <div id="filter_knapper">
+          <button data-kategori="All" class="valgt">Alle</button>
+          <button data-kategori="Pop">Pop</button>
+          <button data-kategori="Country">Country</button>
+          <button data-kategori="Rock">Rock</button>
+          <button data-kategori="Hiphop">Hiphop</button>
+          <button data-kategori="R'n'B">R'n'B</button>
+        </div>
+        <section class="liste"></section>
         <template>
           <article>
-            <img src="" alt="" />
-            <h2></h2>
-            <p></p>
+            <img src="" alt="" class="picture" />
+            <h2 class="Name"></h2>
+            <h3 class="Artist"></h3>
+            <p class="Pris"></p>
           </article>
         </template>
       </section>
@@ -45,6 +78,26 @@
         },
       };
 
+      document.addEventListener("DOMContentLoaded", start);
+      let data;
+      let filter = "All";
+
+      function start() {
+        const filtKnapper = document.querySelectorAll("#filter_knapper button");
+        filtKnapper.forEach((knap) =>
+          knap.addEventListener("click", filtrerAlbums)
+        );
+        hentData();
+      }
+
+      function filtrerAlbums() {
+        console.log("filtrerAlbums");
+        filter = this.dataset.kategori;
+        document.querySelector(".valgt").classList.remove("valgt");
+        this.classList.add("valgt");
+        vis(data);
+      }
+
       async function hentData() {
         const respons = await fetch(url, options);
         const json = await respons.json();
@@ -52,10 +105,24 @@
         vis(data);
       }
 
-      hentData();
-
       function vis(data) {
+        console.log("vis");
+        const container = document.querySelector(".liste");
+        container.textContent = "";
         console.log(data);
+        data.forEach((album) => {
+          console.log(album.Genre);
+          if (filter == album.Genre || filter == "All") {
+            const klon = template.cloneNode(true);
+            klon.querySelector("h2").textContent = "Album: " + album.Name;
+            klon.querySelector("img").src =
+              "AlbumCovers/" + album.Picture + ".png";
+            klon.querySelector("h3").textContent = "Artist: " + album.Artist;
+            klon.querySelector(".Pris").textContent =
+              "Price: " + album.Pris + ",- DKK";
+            container.appendChild(klon);
+          }
+        });
       }
     </script>
   </body>
