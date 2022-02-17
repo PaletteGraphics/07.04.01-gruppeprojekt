@@ -33,7 +33,7 @@
 
       body {
         background-image: url(ikoner/baggrund.svg);
-        background-size: cover;
+        background-size: contain;
       }
 
       #section_1 img {
@@ -147,10 +147,20 @@
 
       function start() {
         document.querySelector(".col_1").addEventListener("click", clickCd8);
+        document.querySelector(".col_2").addEventListener("click", clickCd14);
+        document.querySelector(".col_3").addEventListener("click", clickCd5);
       }
 
       function clickCd8() {
         console.log("klik_8");
+      }
+
+      function clickCd14() {
+        console.log("klik_14");
+      }
+
+      function clickCd5() {
+        console.log("klik_5");
       }
     </script>
   </body>
