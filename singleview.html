@@ -7,12 +7,22 @@
     <link rel="stylesheet" href="general.css" />
     <title>Single-view</title>
     <style>
+      /*----section----*/
       @media (min-width: 768px) {
         #section_1 {
           display: grid;
           grid-template-columns: 1fr 1fr;
         }
       }
+
+      /*----article----*/
+      article {
+        display: grid;
+        place-content: center;
+        text-align: center;
+      }
+
+      /*-----col-----*/
       @media (max-width: 767px) {
         .col {
           display: grid;
@@ -20,14 +30,12 @@
           text-align: center;
         }
       }
-      #section_1 img {
-        width: 100%;
-      }
 
+      /*----footer----*/
       @media (min-width: 768px) {
         footer {
           display: flex;
-          gap: 20px;
+          gap: 175px;
           place-content: center;
         }
         .footer_col_2 {
@@ -42,6 +50,13 @@
           text-align: center;
         }
       }
+      footer {
+        margin-top: 4rem;
+        border: solid 1px white;
+      }
+      footer p {
+        font-size: 0.7rem;
+      }
     </style>
   </head>
   <body>
@@ -54,21 +69,20 @@
     <main>
       <button class="back_button">Back</button>
       <section id="section_1">
-        <div class="col">
+        <article class="col">
           <div class="single_cd"><img src="AlbumCovers/cd1.png" alt="" /></div>
-        </div>
-        <div class="col">
+        </article>
+        <article class="col">
           <div class="txt">txt</div>
           <div class="price">price</div>
           <button class="buy">Add to Cart</button>
-        </div>
+        </article>
       </section>
     </main>
     <footer>
       <div class="footer_col_1">
         <p>Guldbergsgade 29N 2200 København N</p>
         <p>Gruppe5@stud.kea.dk</p>
-        <p>xx xx xx xx</p>
       </div>
       <div class="footer_col_2">
         <img src="ikoner/Facebook.svg" alt="" />
