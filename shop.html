@@ -14,7 +14,7 @@
 
     .liste {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 40px;
     }
 
@@ -146,13 +146,10 @@
       }
 
       function vis(data) {
-        console.log("vis");
         const container = document.querySelector(".liste");
         container.textContent = "";
-        console.log(data);
         data.forEach((album) => {
-          console.log(album.Genre);
-          if (filter == album.Genre || filter == "true") {
+          if (filter == album.Genre || filter == "All") {
             const klon = template.cloneNode(true);
             klon.querySelector("h2").textContent = album.Name;
             klon.querySelector("img").src =
