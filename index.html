@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A-CD</title>
-    <link rel="shortcut icon" type="image/png" href="ikoner/CD_fav.png" />
+    <link rel="shortcut icon" type="image/png" href="ikoner/cdlogo.png" />
     <link rel="stylesheet" href="general.css" />
     <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
 
     <style>
+      section {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
       button {
         background-image: linear-gradient(
           to right,
@@ -137,13 +141,40 @@
       .shop_button {
         text-align: center;
       }
+
+      /*----footer----*/
+      @media (min-width: 768px) {
+        footer {
+          display: flex;
+          gap: 175px;
+          place-content: center;
+        }
+        .footer_col_2 {
+          display: flex;
+          gap: 20px;
+        }
+      }
+      @media (max-width: 768px) {
+        footer {
+          display: grid;
+          place-content: center;
+          text-align: center;
+        }
+      }
+      footer {
+        margin-top: 4rem;
+        border: solid 1px white;
+      }
+      footer p {
+        font-size: 0.7rem;
+      }
     </style>
   </head>
   <body>
     <header>
       <nav>
         <div class="logo">
-          <a href="index.html"><img src="ikoner/CD.png" alt="logo" /></a>
+          <a href="index.html"><img src="ikoner/cdlogo.png" alt="logo" /></a>
         </div>
         <div class="links">
           <a href="index.html"><img src="ikoner/profil.svg" alt="profil" /></a>
@@ -190,14 +221,13 @@
       </section>
     </main>
     <footer>
-      <div class="col_1">
-        <p>XXXXXXX</p>
+      <div class="footer_col_1">
+        <p>Guldbergsgade 29N 2200 København N</p>
+        <p>Gruppe5@stud.kea.dk</p>
       </div>
-      <div class="col_2">
-        <p>XXXXXXX</p>
-      </div>
-      <div class="col_3">
-        <p>XXXXXXX</p>
+      <div class="footer_col_2">
+        <img src="ikoner/Facebook.svg" alt="" />
+        <img src="ikoner/Instagram.svg" alt="" />
       </div>
     </footer>
     <script>
