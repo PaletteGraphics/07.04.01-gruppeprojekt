@@ -12,17 +12,34 @@
           grid-template-columns: 1fr 1fr;
         }
       }
-      img {
+      @media (max-width: 767px) {
+        .col {
+          display: grid;
+          place-content: center;
+          text-align: center;
+        }
+      }
+      #section_1 img {
         width: 100%;
       }
-      footer {
-        display: flex;
-        gap: 20px;
-        place-content: center;
+
+      @media (min-width: 768px) {
+        footer {
+          display: flex;
+          gap: 20px;
+          place-content: center;
+        }
+        .footer_col_2 {
+          display: flex;
+          gap: 20px;
+        }
       }
-      .footer_col_2 {
-        display: flex;
-        gap: 20px;
+      @media (max-width: 768px) {
+        footer {
+          display: grid;
+          place-content: center;
+          text-align: center;
+        }
       }
     </style>
   </head>

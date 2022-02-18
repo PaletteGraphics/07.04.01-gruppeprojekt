@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
 }
@@ -11,4 +12,10 @@ body {
   margin-left: 10%;
   background-image: url(ikoner/baggrund_1.svg);
   background-size: cover;
+}
+@font-face {
+  font-family: "ageta";
+  src: url("font/agetachubbydemo-o7l6-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
