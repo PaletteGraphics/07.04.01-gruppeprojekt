@@ -10,8 +10,30 @@
     <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
 
     <style>
-      * {
-        margin: 0 auto;
+      button {
+        background-image: linear-gradient(
+          to right,
+          #ff6e7f 0%,
+          #bfe9ff 51%,
+          #ff6e7f 100%
+        );
+      }
+      button {
+        margin: 10px;
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+      }
+
+      button:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
       }
 
       nav {
@@ -46,7 +68,6 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 100%;
       }
 
       #section_1 {
@@ -73,7 +94,6 @@
       .cd {
         display: grid;
         gap: 50px;
-        padding-bottom: 50px;
       }
 
       h1 {
@@ -83,6 +103,37 @@
       }
 
       button {
+        text-align: center;
+      }
+
+      .cd {
+        display: grid;
+        text-align: center;
+      }
+
+      .Name {
+        font-size: 1.5rem;
+      }
+
+      article {
+        display: grid;
+        transition: 0.3s;
+        border-radius: 5px;
+        text-align: center;
+        place-content: center;
+      }
+
+      article:hover {
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
+        background-color: rgba(255, 255, 255, 0.596);
+        cursor: pointer;
+      }
+
+      .liste img {
+        padding-top: 30px;
+      }
+
+      .shop_button {
         text-align: center;
       }
     </style>
@@ -101,6 +152,7 @@
       </nav>
     </header>
     <main>
+      <!-- section 1 -->
       <section id="section_1">
         <div class="splash_logo">
           <img src="ikoner/logo.svg" alt="logo" />
@@ -112,31 +164,24 @@
           </p>
         </div>
       </section>
+      <!-- section 2 -->
       <section id="section_2">
-        <article class="popular">
-          <h1>POPULAR RELEASES</h1>
-        </article>
+        <h1>POPULAR RELEASES</h1>
+      </section>
+
+      <!-- template til popular releases -->
+      <section class="liste"></section>
+      <template>
         <article class="cd">
           <div class="col">
-            <img src="AlbumCovers/cd8.png" alt="cd_8" />
-            <h3>Album: Horsin' Around</h3>
-            <h4>Artist: Trees, Leaves and Everything In-Between</h4>
-            <p>Pris: 142,- DKK</p>
-          </div>
-          <div class="col">
-            <img src="AlbumCovers/cd14.png" alt="cd_14" />
-            <h3>Album: So Was She</h3>
-            <h4>Artist: Sky Is Purple</h4>
-            <p>Price: 28,- DKK</p>
-          </div>
-          <div class="col">
-            <img src="AlbumCovers/cd5.png" alt="cd_5" />
-            <h3>Album: In The Night</h3>
-            <h4>Artist: Day Jewels</h4>
-            <p>Price: 188,- DKK</p>
+            <img src="" alt="" />
+            <h3 class="Name"></h3>
+            <h4 class="Pris"></h4>
           </div>
         </article>
-      </section>
+      </template>
+
+      <!-- section 3 -->
       <section id="section_3">
         <div class="shop_button">
           <button>SHOP CD'S HERE</button>
@@ -155,16 +200,58 @@
       </div>
     </footer>
     <script>
+      // script lytter efter, om dom'en er loadet
       document.addEventListener("DOMContentLoaded", start);
 
-      function start() {
-        document.querySelectorAll(".col").addEventListener("click", clickCd);
+      const url = "https://cdpassion-da18.restdb.io/rest/albums";
+      const template = document.querySelector("template").content;
 
+      const options = {
+        headers: {
+          "x-apikey": "620e328534fd621565858715",
+        },
+      };
+
+      function start() {
+        // laver mit array om til dom-elementer, så de kan klikkes på
+        let popularReleases = document.querySelectorAll(".col");
+
+        // kalder på alle billederne
+        popularReleases.forEach((cdBillede) =>
+          cdBillede.addEventListener("click", ClickCd)
+        );
+
+        // henter data fra json
         hentData();
+
+        async function hentData() {
+          const respons = await fetch(url, options);
+          const json = await respons.json();
+          data = json;
+          vis(data);
+        }
+
+        function vis(data) {
+          console.log("vis");
+          const container = document.querySelector(".liste");
+          container.textContent = "";
+          console.log(data);
+          data.forEach((album) => {
+            console.log(album.Popular_Releases);
+            if (album.Popular_Releases != false) {
+              const klon = template.cloneNode(true);
+              klon.querySelector("img").src =
+                "AlbumCovers/" + album.Picture + ".png";
+              klon.querySelector("h3").textContent = album.Name;
+              klon.querySelector("h4").textContent = album.Artist;
+              container.appendChild(klon);
+            }
+          });
+        }
       }
 
       function clickCd() {
-        console.log("klik_8");
+        console.log("klik");
         location.href = `singleview.html?id=${hvad._id}`;
       }
     </script>
