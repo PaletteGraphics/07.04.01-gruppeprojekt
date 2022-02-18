@@ -15,8 +15,8 @@
 
     .liste {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 40px;
     }
 
     .knapcontainer {
@@ -24,37 +24,50 @@
     }
 
     #filter_knapper button {
-      background: white;
+      background: none;
       color: inherit;
       cursor: pointer;
-      outline: solid;
-      border-width: 0.1px;
-      margin-right: 15px;
-      transition-duration: 0.4s;
+      border: none;
+      margin-right: 30px;
+      transition: transform 0.4s;
       font-size: 1.2rem;
-      margin-bottom: 15px;
+      margin-bottom: 30px;
     }
 
     #filter_knapper button:hover {
-      color: plum;
+      transform: scale(1.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .valgt {
+      transform: scale(1.3);
     }
 
     article {
       display: grid;
       margin-bottom: 5px;
       padding: 10px;
-      margin-top: 5px;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       transition: 0.3s;
       border-radius: 5px;
-      background-color: #ffffff;
       text-align: center;
       place-content: center;
     }
 
     article:hover {
-      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
+      background-color: rgba(255, 255, 255, 0.596);
       cursor: pointer;
+    }
+
+    article h1,
+    h2,
+    p {
+      margin: 1%;
+    }
+
+    article img {
+      margin-bottom: 10%;
     }
   </style>
   <body>
@@ -72,7 +85,7 @@
       <section id="section_2">
         <div class="knapcontainer">
           <div id="filter_knapper">
-            <button data-kategori="All" class="valgt">Alle</button>
+            <button data-kategori="All" class="valgt">All</button>
             <button data-kategori="Pop">Pop</button>
             <button data-kategori="Country">Country</button>
             <button data-kategori="Rock">Rock</button>
@@ -142,15 +155,20 @@
           console.log(album.Genre);
           if (filter == album.Genre || filter == "All") {
             const klon = template.cloneNode(true);
-            klon.querySelector("h2").textContent = "Album: " + album.Name;
+            klon.querySelector("h2").textContent = album.Name;
             klon.querySelector("img").src =
               "AlbumCovers/" + album.Picture + ".png";
-            klon.querySelector("h3").textContent = "Artist: " + album.Artist;
-            klon.querySelector(".Pris").textContent =
-              "Price: " + album.Pris + ",- DKK";
+            klon.querySelector("h3").textContent = album.Artist;
+            klon.querySelector(".Pris").textContent = album.Pris + ",- DKK";
+            klon
+              .querySelector("article")
+              .addEventListener("click", () => visDetaljer(album));
             container.appendChild(klon);
           }
         });
+        function visDetaljer(hvad) {
+          location.href = `singleview.html =${hvad._id}`;
+        }
       }
     </script>
   </body>
