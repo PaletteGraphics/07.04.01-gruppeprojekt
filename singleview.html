@@ -4,58 +4,149 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="ikoner/CD_fav.png" />
+    <link rel="stylesheet" href="general.css" />
     <title>Single-view</title>
     <style>
+      /*----header----*/
+      nav {
+        display: flex;
+        justify-content: space-between;
+      }
+      .links {
+        display: grid;
+      }
+
+      .logo img {
+        width: 18%;
+        padding-top: 0.5rem;
+      }
+      /*----section----*/
       @media (min-width: 768px) {
         #section_1 {
           display: grid;
           grid-template-columns: 1fr 1fr;
         }
       }
-      img {
-        width: 100%;
+
+      /*----article----*/
+      article {
+        display: grid;
+        place-content: center;
+        text-align: center;
+      }
+
+      /*-----col-----*/
+      @media (max-width: 767px) {
+        .col {
+          display: grid;
+          place-content: center;
+          text-align: center;
+        }
+      }
+
+      /*----footer----*/
+      @media (min-width: 768px) {
+        footer {
+          display: flex;
+          gap: 175px;
+          place-content: center;
+        }
+        .footer_col_2 {
+          display: flex;
+          gap: 20px;
+        }
+      }
+      @media (max-width: 768px) {
+        footer {
+          display: grid;
+          place-content: center;
+          text-align: center;
+        }
       }
       footer {
-        display: flex;
-        gap: 20px;
-        place-content: center;
+        margin-top: 4rem;
+        border: solid 1px white;
       }
-      .footer_col_2 {
-        display: flex;
-        gap: 20px;
+      footer p {
+        font-size: 0.7rem;
       }
     </style>
   </head>
   <body>
     <header>
       <nav>
-        <div class="logo"></div>
-        <div class="links"></div>
+        <div class="logo">
+          <a href="index.html"><img src="ikoner/CD.png" alt="logo" /></a>
+        </div>
+        <div class="links">
+          <a href="index.html"><img src="ikoner/profil.svg" alt="profil" /></a>
+          <a href="index.html"><img src="ikoner/bag.svg" alt="bag" /></a>
+          <a href="index.html"><img src="ikoner/search.svg" alt="søg" /></a>
+        </div>
       </nav>
     </header>
     <main>
       <button class="back_button">Back</button>
       <section id="section_1">
-        <div class="col">
-          <div class="single_cd"><img src="AlbumCovers/cd1.png" alt="" /></div>
-        </div>
-        <div class="col">
-          <div class="txt">txt</div>
-          <div class="price">price</div>
-          <button class="buy">Add to Cart</button>
-        </div>
+        <article class="col">
+          <img src="" alt=""></img>
+        </article>
+        <article class="col">
+          <div class="txt"></div>
+          <div class="price"></div>
+          <button class="buy"></button>
+        </article>
       </section>
     </main>
     <footer>
       <div class="footer_col_1">
         <p>Guldbergsgade 29N 2200 København N</p>
         <p>Gruppe5@stud.kea.dk</p>
-        <p>xx xx xx xx</p>
       </div>
       <div class="footer_col_2">
         <img src="ikoner/Facebook.svg" alt="" />
         <img src="ikoner/Instagram.svg" alt="" />
       </div>
     </footer>
+    <script>
+      //hent alle URL-parametrene ud (vi har kun et)
+      const urlParams = new URLSearchParams(window.location.search);
+      //hent det enlige parameter ud der hedder id
+      const id = urlParams.get("id");
+
+      const url = `https://cdpassion-da18.restdb.io/rest/albums${id}`;
+      const main = document.querySelector("main").content;
+
+      let album;
+
+      const options = {
+        headers: {
+          "x-apikey": "620e328534fd621565858715",
+        },
+      };
+      document.addEventListener("DOMContentLoaded", hentData);
+      async function hentData() {
+        console.log("hentdata");
+        //sæt id fra url-parametrene ind i kald til restdb og modtag kun en post.
+        const JSONdata = await fetch(url, options);
+        album = await JSONdata.json();
+        vis(album);
+      }
+      function vis(album) {
+        document.querySelector("img").src =
+          "AlbumCovers/" + album.Picture + ".png";
+        document.querySelector(".txt").textContent = album.Artist;
+        document.querySelector(".price").src = +album.Pris + ",- DKK";
+        //tilføj eventlistener der lytter efter klik på tilbage knap
+        document
+          .querySelector(".back_button")
+          .addEventListener("click", tilbage);
+      }
+      function tilbage() {
+        // manipulerer med browser history og går et skridt tilbage i historikken
+        history.back();
+      }
+    </script>
   </body>
 </html>
