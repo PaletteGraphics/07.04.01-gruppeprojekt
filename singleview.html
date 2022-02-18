@@ -63,12 +63,21 @@
   </head>
   <body>
     <header>
+      <nav>
+        <div class="logo">
+          <a href="index.html"><img src="ikoner/cdlogo.png" alt="logo" /></a>
+        </div>
+        <div class="links">
+            <a href="shop.html" class="shop">Shop</a>
+          <a href="index.html"><img src="ikoner/bag.svg" alt="bag" /></a>
+        </div>
+      </nav>
     </header>
     <main>
       <button class="back_button">Back</button>
       <section id="section_1">
         <article class="col">
-          <img src="" alt=""></img>
+          <img class ="billede" src="" alt=""></img>
         </article>
         <article class="col">
           <h3 class="txt"></h3>
@@ -113,7 +122,7 @@
         vis();
       }
       function vis() {
-        document.querySelector("img").src =
+        document.querySelector(".billede").src =
           "AlbumCovers/" + album.Picture + ".png";
         document.querySelector(".txt").textContent = album.Artist;
         document.querySelector(".genre").textContent = album.Genre;
