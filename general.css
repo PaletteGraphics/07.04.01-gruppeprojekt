@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -18,4 +17,12 @@ body {
   src: url("font/agetachubbydemo-o7l6-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+}
+p {
+  font-family: neue-haas-grotesk-display, sans-serif;
+  font-weight: 500;
+}
+h1,
+h2 {
+  font-family: "ageta";
 }
