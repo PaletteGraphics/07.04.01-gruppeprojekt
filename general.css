@@ -31,6 +31,12 @@ h4 {
 h1 {
   font-family: "ageta";
 }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
 .links img {
   display: flex;
   padding-top: 2rem;
