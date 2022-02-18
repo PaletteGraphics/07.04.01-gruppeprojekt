@@ -31,7 +31,6 @@ h4 {
 h1 {
   font-family: "ageta";
 }
-<<<<<<< HEAD
 .links img {
         display: flex;
         padding-top: 2rem;
@@ -58,33 +57,3 @@ h1 {
         padding-top: 0.5rem;
         margin-left: 2rem;
       }
-=======
-
-/*----footer-----*/
-@media (min-width: 768px) {
-  footer {
-    display: flex;
-    gap: 175px;
-    place-content: center;
-  }
-  .footer_col_2 {
-    display: flex;
-    gap: 20px;
-  }
-}
-@media (max-width: 768px) {
-  footer {
-    display: grid;
-    place-content: center;
-    text-align: center;
-    gap: 15px;
-  }
-}
-footer {
-  margin-top: 4rem;
-  border: solid 1px white;
-}
-footer p {
-  font-size: 0.7rem;
-}
->>>>>>> 5d2f915e36937ad1c08f78869953878184bb817b
