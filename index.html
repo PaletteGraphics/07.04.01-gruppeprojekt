@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A-CD</title>
+    <link rel="shortcut icon" type="image/png" href="ikoner/CD_fav.png" />
+    <link rel="stylesheet" href="general.css" />
     <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
 
     <style>
@@ -18,12 +20,16 @@
       }
 
       .links img {
-        width: 15%;
         padding-top: 1rem;
+        width: 100%;
+      }
+
+      .links {
+        display: flex;
       }
 
       .logo img {
-        width: 40%;
+        width: 18%;
         padding-top: 0.5rem;
       }
 
@@ -73,6 +79,11 @@
       h1 {
         padding-bottom: 50px;
         font-size: 1.7rem;
+        font-family: "ageta";
+      }
+
+      button {
+        text-align: center;
       }
     </style>
   </head>
@@ -80,7 +91,7 @@
     <header>
       <nav>
         <div class="logo">
-          <a href="index.html"><img src="ikoner/logo.svg" alt="logo" /></a>
+          <a href="index.html"><img src="ikoner/CD.png" alt="logo" /></a>
         </div>
         <div class="links">
           <a href="index.html"><img src="ikoner/profil.svg" alt="profil" /></a>
@@ -102,33 +113,34 @@
         </div>
       </section>
       <section id="section_2">
-        <div class="popular">
+        <article class="popular">
           <h1>POPULAR RELEASES</h1>
-        </div>
-        <div class="cd">
-          <div class="col_1">
+        </article>
+        <article class="cd">
+          <div class="col">
             <img src="AlbumCovers/cd8.png" alt="cd_8" />
-            <h2>Album: Horsin' Around</h2>
-            <h3>Artist: Trees, Leaves and Everything In-Between</h3>
+            <h3>Album: Horsin' Around</h3>
+            <h4>Artist: Trees, Leaves and Everything In-Between</h4>
             <p>Pris: 142,- DKK</p>
           </div>
-          <div class="col_2">
+          <div class="col">
             <img src="AlbumCovers/cd14.png" alt="cd_14" />
-            <h2>Album: So Was She</h2>
-            <h3>Artist: Sky Is Purple</h3>
+            <h3>Album: So Was She</h3>
+            <h4>Artist: Sky Is Purple</h4>
             <p>Price: 28,- DKK</p>
           </div>
-          <div class="col_3">
+          <div class="col">
             <img src="AlbumCovers/cd5.png" alt="cd_5" />
-            <h2>Album: In The Night</h2>
-            <h3>Artist: Day Jewels</h3>
+            <h3>Album: In The Night</h3>
+            <h4>Artist: Day Jewels</h4>
             <p>Price: 188,- DKK</p>
           </div>
-        </div>
+        </article>
       </section>
       <section id="section_3">
-        <div class="text_2"></div>
-        <div class="shop_button"></div>
+        <div class="shop_button">
+          <button>SHOP CD'S HERE</button>
+        </div>
       </section>
     </main>
     <footer>
@@ -146,22 +158,14 @@
       document.addEventListener("DOMContentLoaded", start);
 
       function start() {
-        document.querySelector(".col_1").addEventListener("click", clickCd8);
-        document.querySelector(".col_2").addEventListener("click", clickCd14);
-        document.querySelector(".col_3").addEventListener("click", clickCd5);
+        document.querySelectorAll(".col").addEventListener("click", clickCd);
+
+        hentData();
       }
 
-      function clickCd8() {
+      function clickCd() {
         console.log("klik_8");
         location.href = `singleview.html?id=${hvad._id}`;
-      }
-
-      function clickCd14() {
-        console.log("klik_14");
-      }
-
-      function clickCd5() {
-        console.log("klik_5");
       }
     </script>
   </body>
