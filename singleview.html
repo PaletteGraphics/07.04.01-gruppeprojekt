@@ -8,19 +8,6 @@
     <link rel="stylesheet" href="general.css" />
     <title>Single-view</title>
     <style>
-      /*----header----*/
-      nav {
-        display: flex;
-        justify-content: space-between;
-      }
-      .links {
-        display: grid;
-      }
-
-      .logo img {
-        width: 18%;
-        padding-top: 0.5rem;
-      }
       /*----section----*/
       @media (min-width: 768px) {
         #section_1 {
@@ -75,16 +62,6 @@
   </head>
   <body>
     <header>
-      <nav>
-        <div class="logo">
-          <a href="index.html"><img src="ikoner/CD.png" alt="logo" /></a>
-        </div>
-        <div class="links">
-          <a href="index.html"><img src="ikoner/profil.svg" alt="profil" /></a>
-          <a href="index.html"><img src="ikoner/bag.svg" alt="bag" /></a>
-          <a href="index.html"><img src="ikoner/search.svg" alt="søg" /></a>
-        </div>
-      </nav>
     </header>
     <main>
       <button class="back_button">Back</button>
@@ -93,9 +70,11 @@
           <img src="" alt=""></img>
         </article>
         <article class="col">
-          <div class="txt"></div>
+          <h3 class="txt"></h3>
+          <h4 class="genre"></h4>
+          <p class="description"></p>
           <div class="price"></div>
-          <button class="buy"></button>
+          <button class="buy">BUY</button>
         </article>
       </section>
     </main>
@@ -128,15 +107,17 @@
       async function hentData() {
         console.log("hentdata");
         //sæt id fra url-parametrene ind i kald til restdb og modtag kun en post.
-        const JSONdata = await fetch(`https://cdpassion-da18.restdb.io/rest/albums${id}`, options);
+        const JSONdata = await fetch(`https://cdpassion-da18.restdb.io/rest/albums/${id}`, options);
         album = await JSONdata.json();
-        vis(album);
+        vis();
       }
-      function vis(album) {
+      function vis() {
         document.querySelector("img").src =
           "AlbumCovers/" + album.Picture + ".png";
         document.querySelector(".txt").textContent = album.Artist;
+        document.querySelector(".genre").textContent = album.Genre;
         document.querySelector(".price").textContent = album.Pris + ",- DKK";
+        document.querySelector(".description").textContent = album.Description;
         //tilføj eventlistener der lytter efter klik på tilbage knap
         document
           .querySelector(".back_button")
