@@ -10,8 +10,8 @@ img {
 body {
   margin-right: 10%;
   margin-left: 10%;
-  background-image: url(ikoner/baggrund.svg);
-  background-size: 100%;
+  background-image: url(ikoner/baggrund_1.svg);
+  background-size: cover;
 }
 @font-face {
   font-family: "ageta";
