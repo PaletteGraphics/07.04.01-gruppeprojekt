@@ -1,15 +1,17 @@
 * {
   box-sizing: border-box;
-  margin: 0 auto;
 }
 
 img {
   max-width: 100%;
 }
 
+main{
+ margin-right: 10%;
+ margin-left: 10%; 
+}
+
 body {
-  margin-right: 10%;
-  margin-left: 10%;
   background-image: url(ikoner/baggrund_2.jpg);
   background-size: cover;
 }

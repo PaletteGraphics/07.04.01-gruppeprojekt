@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A-CD</title>
+    <link rel="shortcut icon" type="image/png" href="ikoner/CD_fav.png" />
+    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
+
+    <style>
+      button {
+        background-image: linear-gradient(
+          to right,
+          #ff6e7f 0%,
+          #bfe9ff 51%,
+          #ff6e7f 100%
+        );
+      }
+      button {
+        margin: 10px;
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+      }
+
+      button:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .links img {
+        display: flex;
+        padding-top: 2rem;
+        width: 100%;
+      }
+
+      .links {
+        display: flex;
+        width: 8rem;
+        gap: 20px;
+        margin-right: 1rem;
+      }
+
+      .logo img {
+        width: 40%;
+        padding-top: 0.5rem;
+        margin-left: 1rem;
+      }
+
+      footer {
+        border: 1px solid black;
+      }
+
+      body {
+        background-image: url(ikoner/baggrund_1.svg);
+        background-size: cover;
+      }
+
+      #section_1 img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #section_1 {
+        padding: 50px;
+        font-style: normal;
+        text-align: center;
+        line-height: 1.5rem;
+        font-size: 0.8rem;
+      }
+
+      p {
+        font-family: neue-haas-grotesk-display, sans-serif;
+        font-weight: 500;
+      }
+
+      #section_2 {
+        text-align: center;
+      }
+
+      .cd img {
+        width: 50%;
+      }
+
+      .cd {
+        display: grid;
+        gap: 50px;
+      }
+
+      h1 {
+        padding-bottom: 50px;
+        font-size: 1.7rem;
+        font-family: "ageta";
+      }
+
+      button {
+        text-align: center;
+      }
+
+      .cd {
+        display: grid;
+        text-align: center;
+      }
+
+      .Name {
+        font-size: 1.5rem;
+      }
+
+      article {
+        display: grid;
+        transition: 0.3s;
+        border-radius: 5px;
+        text-align: center;
+        place-content: center;
+      }
+
+      article:hover {
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
+        background-color: rgba(255, 255, 255, 0.596);
+        cursor: pointer;
+      }
+
+      .liste img {
+        padding-top: 30px;
+      }
+
+      .shop_button {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <a href="index.html"><img src="ikoner/cdlogo.png" alt="logo" /></a>
+        </div>
+        <div class="links">
+          <a href="index.html"><img src="ikoner/profil.svg" alt="profil" /></a>
+          <a href="index.html"><img src="ikoner/bag.svg" alt="bag" /></a>
+          <a href="index.html"><img src="ikoner/search.svg" alt="søg" /></a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- section 1 -->
+      <section id="section_1">
+        <div class="splash_logo">
+          <img src="ikoner/logo.svg" alt="logo" />
+        </div>
+        <div class="text_1">
+          <p>
+            Discover the new world of old cd’s. Take a look inside our shop, and
+            return to the old school way of listening to your favourite music!
+          </p>
+        </div>
+      </section>
+      <!-- section 2 -->
+      <section id="section_2">
+        <h1>POPULAR RELEASES</h1>
+      </section>
+
+      <!-- template til popular releases -->
+      <section class="liste"></section>
+      <template>
+        <article class="cd">
+          <div class="col">
+            <img src="" alt="" />
+            <h3 class="Name"></h3>
+            <h4 class="Pris"></h4>
+          </div>
+        </article>
+      </template>
+
+      <!-- section 3 -->
+      <section id="section_3">
+        <div class="shop_button">
+          <button>SHOP CD'S HERE</button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="col_1">
+        <p>XXXXXXX</p>
+      </div>
+      <div class="col_2">
+        <p>XXXXXXX</p>
+      </div>
+      <div class="col_3">
+        <p>XXXXXXX</p>
+      </div>
+    </footer>
+    <script>
+      // script lytter efter, om dom'en er loadet
+      document.addEventListener("DOMContentLoaded", start);
+
+      const url = "https://cdpassion-da18.restdb.io/rest/albums";
+      const template = document.querySelector("template").content;
+
+      const options = {
+        headers: {
+          "x-apikey": "620e328534fd621565858715",
+        },
+      };
+
+      function start() {
+        // laver mit array om til dom-elementer, så de kan klikkes på
+        let popularReleases = document.querySelectorAll(".col");
+
+        // kalder på alle billederne
+        popularReleases.forEach((cdBillede) =>
+          cdBillede.addEventListener("click", ClickCd)
+        );
+
+        // henter data fra json
+        hentData();
+
+        async function hentData() {
+          const respons = await fetch(url, options);
+          const json = await respons.json();
+          data = json;
+          vis(data);
+        }
+
+        function vis(data) {
+          console.log("vis");
+          const container = document.querySelector(".liste");
+          container.textContent = "";
+          console.log(data);
+          data.forEach((album) => {
+            console.log(album.Popular_Releases);
+            if (album.Popular_Releases != false) {
+              const klon = template.cloneNode(true);
+              klon.querySelector("img").src =
+                "AlbumCovers/" + album.Picture + ".png";
+              klon.querySelector("h3").textContent = album.Name;
+              klon.querySelector("h4").textContent = album.Artist;
+              container.appendChild(klon);
+            }
+          });
+        }
+      }
+
+      function clickCd() {
+        console.log("klik");
+        location.href = `singleview.html?id=${hvad._id}`;
+      }
+    </script>
+  </body>
+</html>
