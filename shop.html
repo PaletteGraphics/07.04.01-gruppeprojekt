@@ -152,7 +152,7 @@
         console.log(data);
         data.forEach((album) => {
           console.log(album.Genre);
-          if (filter == album.Genre || filter == "All") {
+          if (filter == album.Genre || filter == "true") {
             const klon = template.cloneNode(true);
             klon.querySelector("h2").textContent = album.Name;
             klon.querySelector("img").src =
