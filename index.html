@@ -12,7 +12,7 @@
       .col {
         padding-bottom: 30px;
       }
-      section {
+      .liste {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       }
@@ -181,6 +181,14 @@
           display: grid;
           text-align: center;
         }
+
+        button {
+          place-content: center;
+        }
+
+        h1 {
+          font-size: 2rem
+        }
       }
     </style>
   </head>
@@ -211,6 +219,7 @@
         </div>
       </section>
       <!-- section 2 -->
+      <div>
       <section id="section_2">
         <h1>POPULAR RELEASES</h1>
       </section>
@@ -236,7 +245,7 @@
         </div>
       </section>
     </main>
-    <!-- <footer>
+    <footer>
       <div class="footer_col_1">
         <p>Guldbergsgade 29N 2200 København N</p>
         <p>Gruppe5@stud.kea.dk</p>
@@ -245,7 +254,7 @@
         <img src="ikoner/Facebook.svg" alt="" />
         <img src="ikoner/Instagram.svg" alt="" />
       </div>
-    </footer> -->
+    </footer>
     <script>
       // script lytter efter, om dom'en er loadet
       document.addEventListener("DOMContentLoaded", start);
