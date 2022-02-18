@@ -31,3 +31,29 @@ h4 {
 h1 {
   font-family: "ageta";
 }
+.links img {
+        display: flex;
+        padding-top: 2rem;
+        width: 100%;
+      }
+
+      .links {
+        display: flex;
+        width: 8rem;
+        gap: 25px;
+        margin-right: 4rem;
+      }
+      .shop {
+          text-decoration: none;
+          color: black;
+          font-family: neue-haas-grotesk-display;
+          margin-top: 2.3rem;
+          font-size: 1.5rem;
+          padding-right: 1rem;
+      }
+
+      .logo img {
+        width: 40%;
+        padding-top: 0.5rem;
+        margin-left: 2rem;
+      }
