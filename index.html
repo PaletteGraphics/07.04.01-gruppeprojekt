@@ -8,12 +8,13 @@
     <link rel="shortcut icon" type="image/png" href="ikoner/cdlogo.png" />
     <link rel="stylesheet" href="general.css" />
     <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
-
     <style>
       section {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       }
+
+      /* knappen i bunden */
       button {
         background-image: linear-gradient(
           to right,
@@ -39,29 +40,6 @@
         background-position: right center; /* change the direction of the change here */
         color: #fff;
         text-decoration: none;
-      }
-
-      nav {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .links img {
-        padding-top: 1rem;
-        width: 100%;
-      }
-
-      .links {
-        display: flex;
-      }
-
-      .logo img {
-        width: 18%;
-        padding-top: 0.5rem;
-      }
-
-      footer {
-        border: 1px solid black;
       }
 
       body {
@@ -126,6 +104,7 @@
         border-radius: 5px;
         text-align: center;
         place-content: center;
+        padding-bottom: 30px;
       }
 
       article:hover {
@@ -140,6 +119,12 @@
 
       .shop_button {
         text-align: center;
+        padding-top: 50px;
+      }
+
+      .shop_button p {
+        font-size: 1rem;
+        font-weight: 500;
       }
 
       /*----footer----*/
@@ -168,10 +153,14 @@
       footer p {
         font-size: 0.7rem;
       }
+
+      .text_1 p {
+        font-size: 1rem;
+      }
     </style>
   </head>
   <body>
-    <header>
+    <!-- <header>
       <nav>
         <div class="logo">
           <a href="index.html"><img src="ikoner/cdlogo.png" alt="logo" /></a>
@@ -182,7 +171,7 @@
           <a href="index.html"><img src="ikoner/search.svg" alt="søg" /></a>
         </div>
       </nav>
-    </header>
+    </header> -->
     <main>
       <!-- section 1 -->
       <section id="section_1">
@@ -216,11 +205,13 @@
       <!-- section 3 -->
       <section id="section_3">
         <div class="shop_button">
-          <button>SHOP CD'S HERE</button>
+          <button>
+            <p>SHOP CD'S HERE</p>
+          </button>
         </div>
       </section>
     </main>
-    <footer>
+    <!-- <footer>
       <div class="footer_col_1">
         <p>Guldbergsgade 29N 2200 København N</p>
         <p>Gruppe5@stud.kea.dk</p>
@@ -229,7 +220,7 @@
         <img src="ikoner/Facebook.svg" alt="" />
         <img src="ikoner/Instagram.svg" alt="" />
       </div>
-    </footer>
+    </footer> -->
     <script>
       // script lytter efter, om dom'en er loadet
       document.addEventListener("DOMContentLoaded", start);
