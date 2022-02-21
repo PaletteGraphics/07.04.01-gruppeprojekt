@@ -9,96 +9,50 @@
     <link rel="stylesheet" href="general.css" />
     <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
     <style>
-      .col {
-        padding-bottom: 30px;
-      }
-      .liste {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      }
-
-      /* knappen i bunden */
-      button {
-        background-image: linear-gradient(
-          to right,
-          #ff6e7f 0%,
-          #bfe9ff 50%,
-          #ff6e7f 100%
-        );
-      }
-
-      button {
-        margin: 10px;
-        padding: 15px 45px;
-        text-align: center;
-        text-transform: uppercase;
-        transition: 0.5s;
-        background-size: 200% auto;
+      hr {
+        margin-bottom: 50px;
+        margin-top: 50px;
         color: black;
-        box-shadow: 0 0 20px #eee;
-        border-radius: 10px;
+        border: 0.5px solid black;
       }
 
-      button:hover {
-        background-position: right center; /* change the direction of the change here */
-        color: #fff;
-        text-decoration: none;
+      #section_1,
+      #section_2,
+      #section_3 {
+        text-align: center;
+        line-height: 2rem;
       }
 
-
+      /* ______________________________________section 1 (mobile) */
       #section_1 img {
         display: block;
         margin-left: auto;
         margin-right: auto;
       }
 
-      #section_1 {
-        padding: 50px;
-        font-style: normal;
-        text-align: center;
-        line-height: 1.5rem;
-        font-size: 0.8rem;
+      .text_1 p {
+        font-size: clamp(1rem, 3vw, 1.3rem);
       }
 
-      p {
-        font-family: neue-haas-grotesk-display, sans-serif;
-        font-weight: 500;
-      }
-
-      #section_2 {
-        text-align: center;
-      }
-
-      .cd img {
-        width: 50%;
-      }
-
-      .cd {
-        display: grid;
-
-        text-align: center;
-      }
+      /* _____________________________________section 2 (mobile) */
 
       h1 {
-        padding-bottom: 50px;
-        font-size: 1.7rem;
-        font-family: "ageta";
+        font-size: clamp(1.2rem, 4vw, 2.5rem);
       }
 
-      button {
-        text-align: center;
+      /* _____________________________________array (mobile) */
+      .cd img {
+        width: 60%;
       }
 
       .Name {
-        font-size: 1.5rem;
+        font-size: clamp(1.5rem, 3vw, 1.8rem);
       }
 
       article {
-        display: grid;
         transition: 0.3s;
         border-radius: 5px;
         text-align: center;
-        place-content: center;
         padding-bottom: 20px;
       }
 
@@ -115,85 +69,39 @@
       .liste {
         display: grid;
         gap: 30px;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+
+      /* _____________________________________section 3 (mobile) */
+      .shop_button button {
+        background: none;
+        cursor: pointer;
+        border: none;
+        transition: transform 0.4s;
+        font-size: 1.5rem;
+        text-decoration: underline;
+      }
+
+      .shop_button button:hover {
+        transform: scale(1.2);
       }
 
       .shop_button {
-        text-align: center;
-        padding-top: 50px;
+        padding-top: 20px;
       }
 
       .shop_button p {
-        font-size: 1rem;
-        font-weight: 500;
+        font-size: clamp(1rem, 3vw, 1.2rem);
       }
 
-      /*----footer----*/
-      @media (min-width: 768px) {
-        footer {
-          display: flex;
-          gap: 175px;
-          place-content: center;
-        }
-        .footer_col_2 {
-          display: flex;
-          gap: 20px;
-        }
-      }
-      @media (max-width: 768px) {
-        footer {
-          display: grid;
-          place-content: center;
-          text-align: center;
-        }
-      }
-      footer {
-        margin-top: 4rem;
-        border: solid 1px white;
-      }
-      footer p {
-        font-size: 0.7rem;
-      }
-
-      .text_1 p {
-        font-size: 1rem;
-      }
-
-      /* DESKTOP____________________________________ */
+      /* DESKTOP________________________________________________________________ */
       @media (min-width: 800px) {
-        #section_1 {
-          display: grid;
-          grid-template-rows: 1fr 1fr;
-          place-content: center;
-        }
-
-        .splash_logo {
-          grid-row: 1;
-          display: grid;
-          text-align: center;
-        }
-
         .splash_logo img {
-          width: 40%
+          width: 50%;
         }
 
-        .text_1 {
-          grid-row: 2;
-          display: grid;
-          text-align: center;
-
-        }
-
-        .text_1 p {
-          font-size: 1.5rem;
-          line-height: 2rem
-        }
-
-        button {
-          place-content: center;
-        }
-
-        h1 {
-          font-size: 2rem
+        .cd img {
+          width: 80%;
         }
       }
     </style>
@@ -205,7 +113,7 @@
           <a href="index.html"><img src="ikoner/cdlogo.png" alt="logo" /></a>
         </div>
         <div class="links">
-            <a href="shop.html" class="shop">Shop</a>
+          <a href="shop.html" class="shop">Shop</a>
           <a href="index.html"><img src="ikoner/bag.svg" alt="bag" /></a>
         </div>
       </nav>
@@ -218,13 +126,21 @@
         </div>
         <div class="text_1">
           <p>
-            Discover the new world of old cd’s. Take a look inside our shop, and
-            return to the old school way of listening to your favourite music!
+            <b>
+              Discover the new world of old cd’s. <br />
+              Take a look inside our shop, and return to <br />
+              the old school way of listening to your favourite music!
+            </b>
+          </p>
+          <p>
+            Choose and pick your all time favourite albums in between our
+            selection of music. <br />
+            We offer 5 different genres from pop and R&B to country and rock.
           </p>
         </div>
       </section>
       <!-- section 2 -->
-      <div>
+      <hr />
       <section id="section_2">
         <h1>POPULAR RELEASES</h1>
       </section>
@@ -244,8 +160,8 @@
       <!-- section 3 -->
       <section id="section_3">
         <div class="shop_button">
-          <button>
-            <p>SHOP CD'S HERE</p>
+          <button onclick="location.href='shop.html'">
+            <p>SHOP YOUR FAVOURITE CD'S HERE!</p>
           </button>
         </div>
       </section>
@@ -274,16 +190,20 @@
       };
 
       function start() {
-        // laver mit array om til dom-elementer, så de kan klikkes på
-        let popularReleases = document.querySelectorAll(".col");
-
-        // kalder på alle billederne
-        popularReleases.forEach((cdBillede) =>
-          cdBillede.addEventListener("click", ClickCd)
-        );
+        console.log("start");
 
         // henter data fra json
         hentData();
+
+        // // laver mit array om til dom-elementer, så de kan klikkes på
+        // let popularReleases = document.querySelectorAll(".col img");
+        // console.log({ popularReleases });
+
+        // // kalder på alle billederne
+        // popularReleases.forEach((cdBillede) => {
+        //   console.log(cdBillede);
+        //   cdBillede.addEventListener("click", ClickCd);
+        // });
 
         async function hentData() {
           const respons = await fetch(url, options);
@@ -305,15 +225,19 @@
                 "AlbumCovers/" + album.Picture + ".png";
               klon.querySelector("h3").textContent = album.Name;
               klon.querySelector("h4").textContent = album.Artist;
+
+              klon
+                .querySelector(".col")
+                .addEventListener("click", () => clickCd(album));
               container.appendChild(klon);
             }
           });
         }
       }
 
-      function clickCd() {
-        console.log("klik");
-        location.href = `singleview.html?id=${hvad._id}`;
+      function clickCd(x) {
+        console.log("clickCd");
+        location.href = `singleview.html?id=${x._id}`;
       }
     </script>
   </body>
