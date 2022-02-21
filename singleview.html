@@ -11,10 +11,20 @@
     <title>Single-view</title>
     <style>
       /*----section----*/
+       #section_1 {
+          display: grid;
+          place-content: center;
+          text-align: center;
+          box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
+          background-color: rgba(255, 255, 255, 0.596);
+        }
+
       @media (min-width: 768px) {
         #section_1 {
           display: grid;
           grid-template-columns: 1fr 1fr;
+          box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
+          background-color: rgba(255, 255, 255, 0.596);
           gap:20px;
         }
       }
@@ -25,55 +35,19 @@
         place-content: center;
         text-align: left;
       }
-
-      /*-----col-----*/
-      @media (max-width: 767px) {
-        .col {
-          display: grid;
-          place-content: center;
-          text-align: center;
-        }
-      }
-
-      /*----footer----*/
-      @media (min-width: 768px) {
-        footer {
-          display: flex;
-          gap: 175px;
-          place-content: center;
-        }
-        .footer_col_2 {
-          display: flex;
-          gap: 20px;
-        }
-      }
-      @media (max-width: 768px) {
-        footer {
-          display: grid;
-          place-content: center;
-          text-align: center;
-          gap:15px;
-        }
-      }
-      footer {
-        margin-top: 4rem;
-        border: solid 1px white;
-      }
-      footer p {
-        font-size: 0.7rem;
-      }
+      
     </style>
   </head>
   <body>
-    <header>
+ <header>
+      <div class="logo">
+        <a href="index.html">HJEM</a>
+      </div>
       <nav>
-        <div class="logo">
-          <a href="index.html"><img src="ikoner/cdlogo.png" alt="logo" /></a>
-        </div>
-        <div class="links">
-            <a href="shop.html" class="shop">Shop</a>
-          <a href="index.html"><img src="ikoner/Bag.svg" alt="bag" /></a>
-        </div>
+        <ul>
+          <li><a href="shop.html">SHOP</a></li>
+          <li><a href="index.html">KURV</a></li>
+        </ul>
       </nav>
     </header>
     <main>
@@ -94,11 +68,12 @@
     <footer>
       <div class="footer_col_1">
         <p>Guldbergsgade 29N 2200 København N</p>
-        <p>Gruppe5@stud.kea.dk</p>
       </div>
       <div class="footer_col_2">
-        <img src="ikoner/Facebook.svg" alt="" />
-        <img src="ikoner/Instagram.svg" alt="" />
+        <p>gruppe5@stud.kea.dk</p>
+      </div>
+      <div class="footer_col_3">
+        <p>Tlf.: +45 88 75 37 69</p>
       </div>
     </footer>
     <script>
