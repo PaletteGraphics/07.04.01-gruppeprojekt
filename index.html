@@ -91,13 +91,13 @@
       }
 
       .shop_button p {
-        font-size: clamp(1rem, 3vw, 1.2rem);
+        font-size: clamp(1rem, 3vw, 1.4rem);
       }
 
       /* DESKTOP________________________________________________________________ */
-      @media (min-width: 800px) {
+      @media (min-width: 700px) {
         .splash_logo img {
-          width: 50%;
+          width: 70%;
         }
 
         .cd img {
@@ -108,14 +108,14 @@
   </head>
   <body>
     <header>
+      <div class="logo">
+        <a href="index.html">HJEM</a>
+      </div>
       <nav>
-        <div class="logo">
-          <a href="index.html"><img src="ikoner/cdlogo.png" alt="logo" /></a>
-        </div>
-        <div class="links">
-          <a href="shop.html" class="shop">Shop</a>
-          <a href="index.html"><img src="ikoner/bag.svg" alt="bag" /></a>
-        </div>
+        <ul>
+          <li><a href="shop.html">SHOP</a></li>
+          <li><a href="index.html">KURV</a></li>
+        </ul>
       </nav>
     </header>
     <main>
@@ -169,11 +169,12 @@
     <footer>
       <div class="footer_col_1">
         <p>Guldbergsgade 29N 2200 København N</p>
-        <p>Gruppe5@stud.kea.dk</p>
       </div>
       <div class="footer_col_2">
-        <img src="ikoner/Facebook.svg" alt="" />
-        <img src="ikoner/Instagram.svg" alt="" />
+        <p>gruppe5@stud.kea.dk</p>
+      </div>
+      <div class="footer_col_3">
+        <p>Tlf.: +45 88 75 37 69</p>
       </div>
     </footer>
     <script>
