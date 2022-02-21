@@ -36,14 +36,14 @@
         animation-timing-function: linear;
         animation-fill-mode: both; */
 
-        /* animation-name: bounce_in;
+        animation-name: bounce_in;
         animation-duration: 1.5s;
-        animation-fill-mode: both; */
-
-        animation-name: flicker_in;
-        animation-duration: 2.5s;
-        animation-timing-function: linear;
         animation-fill-mode: both;
+
+        /* animation-name: flicker_in;
+        animation-duration: 2.8s;
+        animation-timing-function: linear;
+        animation-fill-mode: both; */
       }
 
       /* @keyframes fly_in {
@@ -57,7 +57,7 @@
         }
       } */
 
-      /* @keyframes bounce_in {
+      @keyframes bounce_in {
         0% {
           transform: translateY(-500px);
           animation-timing-function: ease-in;
@@ -92,9 +92,9 @@
           transform: translateY(0);
           animation-timing-function: ease-out;
         }
-      } */
+      }
 
-      @keyframes flicker_in {
+      /* @keyframes flicker_in {
         0% {
           opacity: 0;
         }
@@ -188,7 +188,7 @@
         100% {
           opacity: 1;
         }
-      }
+      } */
 
       .text_1 p {
         font-size: clamp(1rem, 3vw, 1.3rem);
