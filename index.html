@@ -21,6 +21,7 @@
       #section_3 {
         text-align: center;
         line-height: 2rem;
+        padding: 50px;
       }
 
       /* ______________________________________section 1 (mobile) */
@@ -28,6 +29,165 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 30px;
+
+        /* animation-name: fly_in;
+        animation-duration: 1.5s;
+        animation-timing-function: linear;
+        animation-fill-mode: both; */
+
+        /* animation-name: bounce_in;
+        animation-duration: 1.5s;
+        animation-fill-mode: both; */
+
+        animation-name: flicker_in;
+        animation-duration: 2.5s;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+      }
+
+      /* @keyframes fly_in {
+        0% {
+          transform: translateX(-1000px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      } */
+
+      /* @keyframes bounce_in {
+        0% {
+          transform: translateY(-500px);
+          animation-timing-function: ease-in;
+          opacity: 0;
+        }
+        38% {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+          opacity: 1;
+        }
+        55% {
+          transform: translateY(-65px);
+          animation-timing-function: ease-in;
+        }
+        72% {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+        }
+        81% {
+          transform: translateY(-28px);
+          animation-timing-function: ease-in;
+        }
+        90% {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+        }
+        95% {
+          transform: translateY(-8px);
+          animation-timing-function: ease-in;
+        }
+        100% {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+        }
+      } */
+
+      @keyframes flicker_in {
+        0% {
+          opacity: 0;
+        }
+        10% {
+          opacity: 0;
+        }
+        10.1% {
+          opacity: 1;
+        }
+        10.2% {
+          opacity: 0;
+        }
+        20% {
+          opacity: 0;
+        }
+        20.1% {
+          opacity: 1;
+        }
+        20.6% {
+          opacity: 0;
+        }
+        30% {
+          opacity: 0;
+        }
+        30.1% {
+          opacity: 1;
+        }
+        30.5% {
+          opacity: 1;
+        }
+        30.6% {
+          opacity: 0;
+        }
+        45% {
+          opacity: 0;
+        }
+        45.1% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 1;
+        }
+        55% {
+          opacity: 1;
+        }
+        55.1% {
+          opacity: 0;
+        }
+        57% {
+          opacity: 0;
+        }
+        57.1% {
+          opacity: 1;
+        }
+        60% {
+          opacity: 1;
+        }
+        60.1% {
+          opacity: 0;
+        }
+        65% {
+          opacity: 0;
+        }
+        65.1% {
+          opacity: 1;
+        }
+        75% {
+          opacity: 1;
+        }
+        75.1% {
+          opacity: 0;
+        }
+        77% {
+          opacity: 0;
+        }
+        77.1% {
+          opacity: 1;
+        }
+        85% {
+          opacity: 1;
+        }
+        85.1% {
+          opacity: 0;
+        }
+        86% {
+          opacity: 0;
+        }
+        86.1% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+        }
       }
 
       .text_1 p {
@@ -42,7 +202,7 @@
 
       /* _____________________________________array (mobile) */
       .cd img {
-        width: 60%;
+        width: 70%;
       }
 
       .Name {
@@ -70,7 +230,34 @@
         display: grid;
         gap: 30px;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+        /* animation-name: zoom_in;
+        animation-duration: 2s;
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        animation-fill-mode: both; */
       }
+
+      /* @keyframes zoom_in {
+        0% {
+          transform: scale(0);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      } */
+
+      /* .cd:hover {
+        background-image: linear-gradient(
+          to right,
+          #51b0d8,
+          #7ae9b3,
+          #79dbac,
+          #319c68
+        );
+        box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+      } */
 
       /* _____________________________________section 3 (mobile) */
       .shop_button button {
@@ -96,7 +283,7 @@
 
       /* DESKTOP________________________________________________________________ */
       @media (min-width: 700px) {
-        .splash_logo img {
+        #splash_logo img {
           width: 70%;
         }
 
@@ -108,20 +295,20 @@
   </head>
   <body>
     <header>
-      <div class="logo">
-        <a href="index.html">HJEM</a>
-      </div>
       <nav>
-        <ul>
-          <li><a href="shop.html">SHOP</a></li>
-          <li><a href="index.html">KURV</a></li>
+        <ul id="hjem">
+          <a href="index.html" class="wrapper outline"> <li>HOME</li></a>
+        </ul>
+        <ul id="shopcartnav">
+          <a href="shop.html" class="wrapper outline"> <li>SHOP</li></a>
+          <a href="index.html" class="wrapper outline"> <li>CART</li></a>
         </ul>
       </nav>
     </header>
     <main>
       <!-- section 1 -->
       <section id="section_1">
-        <div class="splash_logo">
+        <div id="splash_logo">
           <img src="ikoner/logo.svg" alt="logo" />
         </div>
         <div class="text_1">
@@ -132,6 +319,7 @@
               the old school way of listening to your favourite music!
             </b>
           </p>
+          <br />
           <p>
             Choose and pick your all time favourite albums in between our
             selection of music. <br />
@@ -167,13 +355,13 @@
       </section>
     </main>
     <footer>
-      <div class="footer_col_1">
-        <p>Guldbergsgade 29N 2200 København N</p>
-      </div>
-      <div class="footer_col_2">
+      <div class="wrapper_outline">
         <p>gruppe5@stud.kea.dk</p>
       </div>
-      <div class="footer_col_3">
+      <div class="wrapper_outline">
+        <p>Guldbergsgade 29N 2200 København N</p>
+      </div>
+      <div class="wrapper_outline">
         <p>Tlf.: +45 88 75 37 69</p>
       </div>
     </footer>

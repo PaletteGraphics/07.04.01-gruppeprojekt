@@ -2,9 +2,16 @@ img {
   max-width: 100%;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 main {
   margin-right: 10%;
   margin-left: 10%;
+  padding-bottom: 1rem;
 }
 
 body {
@@ -30,11 +37,6 @@ h1 {
 }
 
 /* navigation */
-header {
-  margin: 0;
-  padding: 0;
-}
-
 .wrapper {
   width: 120px;
   height: 40px;
@@ -74,6 +76,7 @@ nav {
   justify-content: space-between;
   padding-top: 20px;
   padding-bottom: 40px;
+  margin: 0px 30px 0px 30px;
 }
 
 nav li {
@@ -90,25 +93,29 @@ nav a {
   margin: 0 0.25em;
 }
 
-#shopcartnav {
-  padding-right: 40px;
-}
-
 /*----footer-----*/
 @media (min-width: 700px) {
   footer {
     display: flex;
     justify-content: space-evenly;
+    line-height: 1rem;
   }
 }
 
 footer {
-  padding-top: 50px;
   gap: 30px;
   text-align: center;
-  padding-top: 5rem;
-  font-size: clamp(0.7rem, 3vw, 1rem);
+  font-size: clamp(0.5rem, 3vw, 0.7vrem);
   line-height: 2rem;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
+  background-color: rgba(255, 255, 255, 0.596);
+  padding: 20px;
+  margin: 50px 0px 0px 0px;
+}
+
+footer p {
+  transform: skew(-20deg);
+  color: #171ea3;
 }
 
 /* button styling */
