@@ -7,43 +7,14 @@
     <link rel="stylesheet" href="general.css" />
     <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
 
-    <title>SHOP</title>
+    <title>CART</title>
   </head>
   <style>
     /* Sætter et responsivt grid på min liste */
-    .liste {
+    .section_1 {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 40px;
-    }
-
-    /* Centrerer teksten i filterknapper */
-    .knapcontainer {
-      text-align: center;
-    }
-
-    /* Styling af filterknapper */
-    #filter_knapper button {
-      background: none;
-      color: inherit;
-      cursor: pointer;
-      border: 2px solid;
-      margin-right: 15px;
-      transition: transform 0.4s;
-      font-size: 1rem;
-      margin-bottom: 30px;
-      padding-left: 0.8rem;
-      padding-right: 0.8rem;
-      padding-top: 0.3rem;
-      padding-bottom: 0.3rem;
-    }
-
-    /* Hovereffect */
-    #filter_knapper button:hover {
-      transform: scale(1.2);
-      border: none;
-      cursor: pointer;
-      border: 2px solid;
     }
 
     /* Effekt, der viser hvilken kategori, som er valgt */
@@ -94,29 +65,8 @@
       </nav>
     </header>
     <main>
-      <!-- Section med filterknapper med de forskellige kategorier -->
-      <section id="section_1">
-        <div class="knapcontainer">
-          <div id="filter_knapper">
-            <button data-kategori="All" class="valgt">All</button>
-            <button data-kategori="Pop">Pop</button>
-            <button data-kategori="Country">Country</button>
-            <button data-kategori="Rock">Rock</button>
-            <button data-kategori="Hiphop">Hiphop</button>
-            <button data-kategori="R'n'B">R'n'B</button>
-          </div>
-        </div>
-        <!-- Tom section til listen -->
-        <section class="liste"></section>
-        <!-- Template tag til at indsætte dynamisk indhold -->
-        <template>
-          <article>
-            <img src="" alt="" class="picture" />
-            <h2 class="Name"></h2>
-            <h3 class="Artist"></h3>
-            <p class="Pris"></p>
-          </article>
-        </template>
+      <section class="section_1">
+        <h1>Cart</h1>
       </section>
     </main>
     <!-- Footer med info -->
