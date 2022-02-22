@@ -80,9 +80,21 @@
     }
 
     h1 {
-      text-align: center;
-      font-size: 4rem;
+      font-size: clamp(2.5rem, 4vw, 5rem);
       margin-bottom: 2rem;
+    }
+
+    #section_1 {
+      padding-top: 3rem;
+    }
+
+    #text {
+      font-size: clamp(0.7rem, 3vw, 1rem);
+      line-height: 2rem;
+    }
+
+    #h1_p {
+      text-align: center;
     }
   </style>
   <body>
@@ -99,7 +111,15 @@
       </nav>
     </header>
     <main>
-      <h1>CD'S FOR YOU</h1>
+      <section id="h1_p">
+        <h1>CD'S FOR YOU</h1>
+        <p id="text">
+          <b>
+            Discover the new world of old cd’s. Take a look inside our shop, and
+            return to the old school way of listening to your favourite music!
+          </b>
+        </p>
+      </section>
       <!-- Section med filterknapper med de forskellige kategorier -->
       <section id="section_1">
         <div class="knapcontainer">
