@@ -43,9 +43,9 @@
         animation-duration: 1.5s;
         animation-fill-mode: both; */
 
-        /* animationen kommer fra https://animista.net 
+        /* animationen kommer fra https://animista.net
         har brugt det til animation af splashlogoet på forsiden*/
-        animation-name: flicker_in;
+        animation-name: bounce_in;
         animation-duration: 2.8s;
         animation-timing-function: linear;
         animation-fill-mode: both;
@@ -62,7 +62,7 @@
         }
       } */
 
-      /* @keyframes bounce_in {
+      @keyframes bounce_in {
         0% {
           transform: translateY(-500px);
           animation-timing-function: ease-in;
@@ -97,21 +97,21 @@
           transform: translateY(0);
           animation-timing-function: ease-out;
         }
-      } */
+      }
 
-      @keyframes flicker_in {
-        0% {
+      /* @keyframes flicker_in { */
+      /* 0% {
           opacity: 0;
-        }
-        10% {
+        } */
+      /* 10% {
           opacity: 0;
-        }
-        10.1% {
+        } */
+      /* 10.1% {
           opacity: 1;
-        }
-        10.2% {
-          opacity: 0;
-        }
+        } */
+      /* 10.2% {
+          opacity: 0; */
+      /* }
         20% {
           opacity: 0;
         }
@@ -146,9 +146,8 @@
           opacity: 1;
         }
         55.1% {
-          opacity: 0;
-        }
-        57% {
+          opacity: 0; */
+      /* 57% {
           opacity: 0;
         }
         57.1% {
@@ -158,8 +157,8 @@
           opacity: 1;
         }
         60.1% {
-          opacity: 0;
-        }
+          opacity: 0; */
+      /* }
         65% {
           opacity: 0;
         }
@@ -171,8 +170,8 @@
         }
         75.1% {
           opacity: 0;
-        }
-        77% {
+        } */
+      /* 77% {
           opacity: 0;
         }
         77.1% {
@@ -192,8 +191,8 @@
         }
         100% {
           opacity: 1;
-        }
-      }
+        } */
+      /* } */
 
       .text_1 p {
         font-size: clamp(1rem, 3vw, 1.3rem);
@@ -266,16 +265,18 @@
 
       /* _____________________________________section 3 (mobile) */
       .shop_button button {
-        /* background: none;
+        background: none;
+        color: inherit;
         cursor: pointer;
-        border: none;
+        border: 2px solid;
+        margin-right: 15px;
         transition: transform 0.4s;
-        font-size: 1.5rem;
-        text-decoration: underline; */
-        background-color: #f96087;
-        text-decoration: none;
-        padding: 10px;
-        border-radius: 5px;
+        font-size: 1rem;
+        margin-bottom: 30px;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
       }
 
       /* .shop_button button:hover {
@@ -310,7 +311,7 @@
         </ul>
         <ul id="shopcartnav">
           <a href="shop.html" class="wrapper outline"> <li>SHOP</li></a>
-          <a href="index.html" class="wrapper outline"> <li>CART</li></a>
+          <a href="cart.html" class="wrapper outline"> <li>CART</li></a>
         </ul>
       </nav>
     </header>
