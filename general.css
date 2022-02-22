@@ -13,7 +13,8 @@ main {
   margin-left: 10%;
   padding-bottom: 1rem;
 }
-
+img {
+}
 body {
   background-image: url(ikoner/baggrund_2.jpg);
   background-size: cover;
@@ -59,6 +60,11 @@ h1 {
   background-color: #222cf2;
 }
 
+.logo img {
+  width: 40%;
+  padding-top: 0.5rem;
+  margin-left: 2rem;
+}
 .outline li:hover {
   color: #fff;
 }
@@ -109,7 +115,6 @@ footer {
   font-size: clamp(0.5rem, 3vw, 0.7vrem);
   line-height: 2rem;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
-  background-color: rgba(255, 255, 255, 0.596);
   padding: 20px;
   margin: 50px 0px 0px 0px;
 }
