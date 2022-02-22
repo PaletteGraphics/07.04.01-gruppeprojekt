@@ -37,6 +37,8 @@
         margin:1rem;
       }
 
+      /*----knapper----*/
+
       #buy {
       color: black;
       cursor: pointer;
@@ -61,10 +63,12 @@
         border: none;
         margin-bottom: 2rem;
       }
+      /*---kolonner---*/
 
       .col {
         line-height: 3rem;
       }
+      /*---billede padding---*/
 
       .billede {
         padding: 2rem;
@@ -73,6 +77,7 @@
     </style>
   </head>
   <body>
+    <!---Header-->
     <header>
       <nav>
         <ul id="hjem">
@@ -86,6 +91,7 @@
     </header>
     <main>
       <button id="back_button">BACK</button>
+      <!---section 1-->
       <section id="section_1">
         <article class="col">
           <img class="billede" src="" alt=""></img>
@@ -100,6 +106,7 @@
         </article>
       </section>
     </main>
+    <!---footer--->
     <footer>
       <div class="footer_col_1">
         <p>Guldbergsgade 29N 2200 København N</p>
@@ -112,7 +119,7 @@
       </div>
     </footer>
     <script>
-      //hent alle URL-parametrene ud (vi har kun et)
+      //hent alle URL-parametrene ud
       const urlParams = new URLSearchParams(window.location.search);
       //hent det enlige parameter ud der hedder id
       const id = urlParams.get("id");
@@ -135,6 +142,8 @@
         album = await JSONdata.json();
         vis();
       }
+
+      //tilføj tekst og billede til html ved at vælge de forskellige classes og tags
       function vis() {
         document.querySelector(".billede").src =
           "AlbumCovers/" + album.Picture + ".png";
@@ -142,6 +151,7 @@
         document.querySelector(".genre").textContent = album.Genre;
         document.querySelector(".price").textContent = album.Pris + ",- DKK";
         document.querySelector(".description").textContent = album.Description;
+
         //tilføj eventlistener der lytter efter klik på tilbage knap
         document
           .querySelector("#back_button")
