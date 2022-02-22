@@ -8,49 +8,50 @@
     <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
 
     <title>CART</title>
+    <style>
+      /* Sætter et responsivt grid på min liste */
+      .section_1,
+      .section_2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 40px;
+        margin-top: 5%;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      /* Effekt, der viser hvilken kategori, som er valgt */
+      .valgt {
+        transform: scale(1.2);
+      }
+
+      /* Styler articler og tilføjer grid */
+      article {
+        display: grid;
+        margin-bottom: 5px;
+        padding: 10px;
+        transition: 0.3s;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      /* Hover effect på artiklerne */
+      article:hover {
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
+        background-color: rgba(255, 255, 255, 0.596);
+        cursor: pointer;
+      }
+
+      /* Margin på overskrifter */
+
+      /* Margin på billeder i artiklen */
+      article img {
+        margin-bottom: 10%;
+      }
+    </style>
   </head>
-  <style>
-    /* Sætter et responsivt grid på min liste */
-    .section_1 {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 40px;
-    }
-
-    /* Effekt, der viser hvilken kategori, som er valgt */
-    .valgt {
-      transform: scale(1.2);
-    }
-
-    /* Styler articler og tilføjer grid */
-    article {
-      display: grid;
-      margin-bottom: 5px;
-      padding: 10px;
-      transition: 0.3s;
-      border-radius: 5px;
-      text-align: center;
-    }
-
-    /* Hover effect på artiklerne */
-    article:hover {
-      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
-      background-color: rgba(255, 255, 255, 0.596);
-      cursor: pointer;
-    }
-
-    /* Margin på overskrifter */
-    article h1,
-    h2,
-    p {
-      margin: 1%;
-    }
-
-    /* Margin på billeder i artiklen */
-    article img {
-      margin-bottom: 10%;
-    }
-  </style>
   <body>
     <header>
       <!-- Navigation med classes -->
@@ -65,8 +66,50 @@
       </nav>
     </header>
     <main>
+      <h1>SHOPPING CART</h1>
       <section class="section_1">
-        <h1>Cart</h1>
+        <div>
+          <img src="AlbumCovers/cd1.png" alt="" />
+        </div>
+        <div>
+          <h2>Product:</h2>
+          <br />
+          <h3>My Last Valentine</h3>
+          <br />
+          <h4>Rocky Troopers</h4>
+        </div>
+        <div>
+          <h2>Quantity:</h2>
+          <br />
+          <h3>1</h3>
+        </div>
+        <div>
+          <h2>Price:</h2>
+          <br />
+          <h3>63,- DKK</h3>
+        </div>
+      </section>
+      <section class="section_2">
+        <div>
+          <img src="AlbumCovers/cd12.png" alt="" />
+        </div>
+        <div>
+          <h2>Product:</h2>
+          <br />
+          <h3>Lowkey Lydspor</h3>
+          <br />
+          <h4>Lars Liljenskjold</h4>
+        </div>
+        <div>
+          <h2>Quantity:</h2>
+          <br />
+          <h3>1</h3>
+        </div>
+        <div>
+          <h2>Price:</h2>
+          <br />
+          <h3>5,- DKK</h3>
+        </div>
       </section>
     </main>
     <!-- Footer med info -->
