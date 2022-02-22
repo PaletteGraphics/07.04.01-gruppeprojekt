@@ -4,15 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/png" href="ikoner/CD_fav.png" />
+    <link rel="shortcut icon" type="image/png" href="ikoner/cdlogo.png" />
     <link rel="stylesheet" href="general.css" />
+        <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
+
     <title>Single-view</title>
     <style>
       /*----section----*/
-      @media (min-width: 768px) {
+       #section_1 {
+          display: grid;
+          place-content: center;
+          text-align: left;
+          box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
+          background-color: rgba(255, 255, 255, 0.596);
+        }
+
+      @media (min-width: 800px) {
         #section_1 {
           display: grid;
           grid-template-columns: 1fr 1fr;
+          box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
+          background-color: rgba(255, 255, 255, 0.596);
+          gap:20px;
         }
       }
 
@@ -20,77 +33,95 @@
       article {
         display: grid;
         place-content: center;
-        text-align: center;
+        text-align: left;
+        margin:1rem;
       }
 
-      /*-----col-----*/
-      @media (max-width: 767px) {
-        .col {
-          display: grid;
-          place-content: center;
-          text-align: center;
-        }
+      /*----knapper----*/
+
+      #buy {
+      color: black;
+      cursor: pointer;
+      border: 2px solid #a7bbff;
+      margin-right: 10px;
+      font-size: 1rem;
+      margin-bottom: 30px;
+      padding-left: 0.2rem;
+      padding-right: 0.2rem;
+      padding-top: 0.3rem;
+      padding-bottom: 0.3rem;
+      width: 200px;
+      border-radius: 5px;
       }
 
-      /*----footer----*/
-      @media (min-width: 768px) {
-        footer {
-          display: flex;
-          gap: 175px;
-          place-content: center;
-        }
-        .footer_col_2 {
-          display: flex;
-          gap: 20px;
-        }
+      #buy:hover {
+        background-color: #a7bbff;
       }
-      @media (max-width: 768px) {
-        footer {
-          display: grid;
-          place-content: center;
-          text-align: center;
-          gap:15px;
-        }
+
+      #back_button {
+        text-decoration: underline;
+        border: none;
+        margin-bottom: 2rem;
       }
-      footer {
-        margin-top: 4rem;
-        border: solid 1px white;
+      /*---kolonner---*/
+
+      .col {
+        line-height: 2rem;
       }
-      footer p {
-        font-size: 0.7rem;
+      /*---billede padding---*/
+
+      .billede {
+        padding: 2rem;
       }
+      
     </style>
   </head>
   <body>
+    <!---Header-->
     <header>
+      <nav>
+        <ul id="hjem">
+          <a href="index.html" class="wrapper outline"> <li>HOME</li></a>
+        </ul>
+        <ul id="shopcartnav">
+          <a href="shop.html" class="wrapper outline"> <li>SHOP</li></a>
+          <a href="cart.html" class="wrapper outline"> <li>CART</li></a>
+        </ul>
+      </nav>
     </header>
     <main>
-      <button class="back_button">Back</button>
+      <button id="back_button">BACK</button>
+      <!---section 1-->
       <section id="section_1">
         <article class="col">
-          <img src="" alt=""></img>
+          <img class="billede" src="" alt=""></img>
         </article>
         <article class="col">
+          <h2></h2>
           <h3 class="txt"></h3>
           <h4 class="genre"></h4>
           <p class="description"></p>
-          <div class="price"></div>
-          <button class="buy">BUY</button>
+          <br>
+          <p class="price"></p>
+          <br>
+          <button id="buy">ADD TO CART</button>
         </article>
       </section>
     </main>
+    <!---footer--->
     <footer>
       <div class="footer_col_1">
         <p>Guldbergsgade 29N 2200 København N</p>
-        <p>Gruppe5@stud.kea.dk</p>
       </div>
       <div class="footer_col_2">
-        <img src="ikoner/Facebook.svg" alt="" />
-        <img src="ikoner/Instagram.svg" alt="" />
+        <p>gruppe5@stud.kea.dk</p>
+      </div>
+      <div class="footer_col_3">
+        <p>Tlf.: +45 88 75 37 69</p>
       </div>
     </footer>
     <script>
-      //hent alle URL-parametrene ud (vi har kun et)
+      //hent alle URL-parametrene ud
       const urlParams = new URLSearchParams(window.location.search);
       //hent det enlige parameter ud der hedder id
       const id = urlParams.get("id");
@@ -105,6 +136,7 @@
         },
       };
       document.addEventListener("DOMContentLoaded", hentData);
+
       async function hentData() {
         console.log("hentdata");
         //sæt id fra url-parametrene ind i kald til restdb og modtag kun en post.
@@ -112,16 +144,19 @@
         album = await JSONdata.json();
         vis();
       }
+
+      //tilføj tekst og billede til html ved at vælge de forskellige classes og tags
       function vis() {
-        document.querySelector("img").src =
+        document.querySelector(".billede").src =
           "AlbumCovers/" + album.Picture + ".png";
-        document.querySelector(".txt").textContent = album.Artist;
+        document.querySelector("h2").textContent = album.Artist + " - " + album.Name;
         document.querySelector(".genre").textContent = album.Genre;
         document.querySelector(".price").textContent = album.Pris + ",- DKK";
         document.querySelector(".description").textContent = album.Description;
+
         //tilføj eventlistener der lytter efter klik på tilbage knap
         document
-          .querySelector(".back_button")
+          .querySelector("#back_button")
           .addEventListener("click", tilbage);
       }
       function tilbage() {

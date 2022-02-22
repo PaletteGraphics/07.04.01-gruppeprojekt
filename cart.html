@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
+
+    <title>CART</title>
+    <style>
+      /* Sætter et responsivt grid på min liste */
+      .section_1,
+      .section_2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 40px;
+        margin-top: 5%;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      /* Effekt, der viser hvilken kategori, som er valgt */
+      .valgt {
+        transform: scale(1.2);
+      }
+
+      /* Styler articler og tilføjer grid */
+      article {
+        display: grid;
+        margin-bottom: 5px;
+        padding: 10px;
+        transition: 0.3s;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      /* Hover effect på artiklerne */
+      article:hover {
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
+        background-color: rgba(255, 255, 255, 0.596);
+        cursor: pointer;
+      }
+
+      /* Margin på overskrifter */
+
+      /* Margin på billeder i artiklen */
+      article img {
+        margin-bottom: 10%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Navigation med classes -->
+      <nav>
+        <ul id="hjem">
+          <a href="index.html" class="wrapper outline"> <li>HOME</li></a>
+        </ul>
+        <ul id="shopcartnav">
+          <a href="shop.html" class="wrapper outline"> <li>SHOP</li></a>
+          <a href="cart.html" class="wrapper outline"> <li>CART</li></a>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>SHOPPING CART</h1>
+      <section class="section_1">
+        <div>
+          <img src="AlbumCovers/cd1.png" alt="" />
+        </div>
+        <div>
+          <h2>Product:</h2>
+          <br />
+          <h3>My Last Valentine</h3>
+          <br />
+          <h4>Rocky Troopers</h4>
+        </div>
+        <div>
+          <h2>Quantity:</h2>
+          <br />
+          <h3>1</h3>
+        </div>
+        <div>
+          <h2>Price:</h2>
+          <br />
+          <h3>63,- DKK</h3>
+        </div>
+      </section>
+      <section class="section_2">
+        <div>
+          <img src="AlbumCovers/cd12.png" alt="" />
+        </div>
+        <div>
+          <h2>Product:</h2>
+          <br />
+          <h3>Lowkey Lydspor</h3>
+          <br />
+          <h4>Lars Liljenskjold</h4>
+        </div>
+        <div>
+          <h2>Quantity:</h2>
+          <br />
+          <h3>1</h3>
+        </div>
+        <div>
+          <h2>Price:</h2>
+          <br />
+          <h3>5,- DKK</h3>
+        </div>
+      </section>
+    </main>
+    <!-- Footer med info -->
+    <footer>
+      <div class="footer_col_1">
+        <p>Guldbergsgade 29N 2200 København N</p>
+      </div>
+      <div class="footer_col_2">
+        <p>gruppe5@stud.kea.dk</p>
+      </div>
+      <div class="footer_col_3">
+        <p>Tlf.: +45 88 75 37 69</p>
+      </div>
+    </footer>
+    <script>
+      // Konstant til dataset
+      const url = "https://cdpassion-da18.restdb.io/rest/albums";
+      // Konstant til at hive fat i template
+      const template = document.querySelector("template").content;
+
+      // Apikey til at åbne datasettet
+      const options = {
+        headers: {
+          "x-apikey": "620e328534fd621565858715",
+        },
+      };
+
+      // Sørger for at dommen er loaded før start functionen kører igennem.
+      document.addEventListener("DOMContentLoaded", start);
+      let data;
+
+      // Definerer filter som "All"
+      let filter = "All";
+
+      // Henter data og tilføjer klik funktion til filterknapperne
+      function start() {
+        const filtKnapper = document.querySelectorAll("#filter_knapper button");
+        filtKnapper.forEach((knap) =>
+          knap.addEventListener("click", filtrerAlbums)
+        );
+        hentData();
+      }
+
+      // Filtrerer dataen og viser dem. Tilføjer klassen valgt til det element, som er blevet klikket på.
+      function filtrerAlbums() {
+        console.log("filtrerAlbums");
+        filter = this.dataset.kategori;
+        document.querySelector(".valgt").classList.remove("valgt");
+        this.classList.add("valgt");
+        vis(data);
+      }
+
+      // Henter data fra json
+      async function hentData() {
+        const respons = await fetch(url, options);
+        const json = await respons.json();
+        data = json;
+        vis(data);
+      }
+
+      // Functionen der viser data og tilføjer de korrekte kategorier til domelementerne
+      function vis(data) {
+        const container = document.querySelector(".liste");
+        container.textContent = "";
+        data.forEach((album) => {
+          if (filter == album.Genre || filter == "All") {
+            const klon = template.cloneNode(true);
+            klon.querySelector("h2").textContent = album.Name;
+            klon.querySelector("img").src =
+              "AlbumCovers/" + album.Picture + ".png";
+            klon.querySelector("h3").textContent = album.Artist;
+            klon.querySelector(".Pris").textContent = album.Pris + ",- DKK";
+            klon
+              .querySelector("article")
+              .addEventListener("click", () => visDetaljer(album));
+            container.appendChild(klon);
+          }
+        });
+
+        // Function der kalder på singleview
+        function visDetaljer(hvad) {
+          location.href = `singleview.html?id=${hvad._id}`;
+        }
+      }
+    </script>
+  </body>
+</html>

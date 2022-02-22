@@ -1,16 +1,20 @@
-* {
-  box-sizing: border-box;
-}
-
 img {
   max-width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 main {
   margin-right: 10%;
   margin-left: 10%;
+  padding-bottom: 1rem;
 }
-
+img {
+}
 body {
   background-image: url(ikoner/baggrund_2.jpg);
   background-size: cover;
@@ -24,70 +28,111 @@ body {
 p,
 h2,
 h3,
-h4 {
+h4,
+a {
   font-family: neue-haas-grotesk-display, sans-serif;
   font-weight: 500;
 }
 h1 {
   font-family: "ageta";
-}
-.links img {
-  display: flex;
-  padding-top: 2rem;
-  width: 100%;
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
 }
 
-.links {
-  display: flex;
-  width: 8rem;
-  gap: 25px;
-  margin-right: 4rem;
+/* ----navigation---- */
+.wrapper {
+  width: 120px;
+  height: 40px;
+  display: inline-block;
+  transform: skew(-30deg);
+  overflow: hidden;
+  border-radius: 5px;
 }
-.shop {
+
+.outline {
+  box-sizing: border-box;
+  border: 2px solid #222cf2;
+  color: #000000;
+  transition: all 150ms ease-in-out;
+  right: 0;
+}
+
+.outline:hover {
+  background-color: #222cf2;
+}
+
+.logo img {
+  width: 40%;
+  padding-top: 0.5rem;
+  margin-left: 2rem;
+}
+.outline li:hover {
+  color: #fff;
+}
+
+.outline:active {
+  background-color: #222cf2;
+}
+
+.unskew {
+  transform: skew(30deg);
+  line-height: 50px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  margin: 0px 30px 0px 30px;
+}
+
+nav li {
+  text-align: center;
+  font-style: normal;
+  list-style: none;
+  padding-top: 0.5rem;
+}
+
+nav a {
   text-decoration: none;
-  color: black;
-  font-family: neue-haas-grotesk-display;
-  margin-top: 2.3rem;
-  font-size: 1.5rem;
-  padding-right: 1rem;
-}
-
-.logo img {
-  width: 40%;
-  padding-top: 0.5rem;
-  margin-left: 2rem;
-      }
-
-.logo img {
-  width: 40%;
-  padding-top: 0.5rem;
-  margin-left: 2rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: 0 0.25em;
 }
 
 /*----footer-----*/
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   footer {
     display: flex;
-    gap: 175px;
-    place-content: center;
-  }
-  .footer_col_2 {
-    display: flex;
-    gap: 20px;
+    justify-content: space-evenly;
+    line-height: 1rem;
   }
 }
-@media (max-width: 768px) {
-  footer {
-    display: grid;
-    place-content: center;
-    text-align: center;
-    gap: 15px;
-  }
-}
+
 footer {
-  margin-top: 4rem;
-  border: solid 1px white;
+  gap: 30px;
+  text-align: center;
+  font-size: clamp(0.5rem, 3vw, 0.7vrem);
+  line-height: 2rem;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
+  padding: 20px;
+  margin: 50px 0px 0px 0px;
 }
+
 footer p {
-  font-size: 0.7rem;
+  transform: skew(-20deg);
+  color: black;
+}
+
+/* ----button styling---- */
+button {
+  background: none;
+  cursor: pointer;
+  /* border: none; */
+  transition: transform 0.4s;
+  font-size: 1.5rem;
+}
+
+button:hover {
+  transform: scale(1.2);
 }
