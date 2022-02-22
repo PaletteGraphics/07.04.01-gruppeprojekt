@@ -53,6 +53,10 @@
         border-radius:5px;
         margin-left:0px;
       }
+
+      .col {
+        line-height: 3rem;
+      }
       
     </style>
   </head>
@@ -75,10 +79,11 @@
           <img class ="billede" src="" alt=""></img>
         </article>
         <article class="col">
+          <h2></h2>
           <h3 class="txt"></h3>
           <h4 class="genre"></h4>
           <p class="description"></p>
-          <div class="price"></div>
+          <p class="price"></p>
           <button class="buy">BUY</button>
         </article>
       </section>
@@ -120,7 +125,8 @@
       function vis() {
         document.querySelector(".billede").src =
           "AlbumCovers/" + album.Picture + ".png";
-        document.querySelector(".txt").textContent = album.Artist;
+        document.querySelector(".txt").textContent = album.Artist + "=" + album;
+        document.querySelector("h2").textContent = album.Name;
         document.querySelector(".genre").textContent = album.Genre;
         document.querySelector(".price").textContent = album.Pris + ",- DKK";
         document.querySelector(".description").textContent = album.Description;
