@@ -36,7 +36,7 @@ h1 {
   font-family: "ageta";
 }
 
-/* navigation */
+/* ----navigation---- */
 .wrapper {
   width: 120px;
   height: 40px;
@@ -118,7 +118,7 @@ footer p {
   color: #171ea3;
 }
 
-/* button styling */
+/* ----button styling---- */
 button {
   background: none;
   cursor: pointer;
