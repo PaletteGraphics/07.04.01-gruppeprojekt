@@ -26,7 +26,7 @@
 
       /* ______________________________________section 1 (mobile) */
 
-      #text_1 #section_1 img {
+      #section_1 img {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -35,9 +35,45 @@
         /* animationen kommer fra https://animista.net
         har brugt det til animation af splashlogoet på forsiden*/
         animation-name: bounce_in;
-        animation-duration: 2.8s;
-        animation-timing-function: linear;
+        animation-duration: 2.5s;
         animation-fill-mode: both;
+      }
+
+      @keyframes bounce_in {
+        0% {
+          transform: translateY(-500px);
+          animation-timing-function: ease-in;
+          opacity: 0;
+        }
+        38% {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+          opacity: 1;
+        }
+        55% {
+          transform: translateY(-65px);
+          animation-timing-function: ease-in;
+        }
+        72% {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+        }
+        81% {
+          transform: translateY(-28px);
+          animation-timing-function: ease-in;
+        }
+        90% {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+        }
+        95% {
+          transform: translateY(-8px);
+          animation-timing-function: ease-in;
+        }
+        100% {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+        }
       }
 
       #section_1 p {
