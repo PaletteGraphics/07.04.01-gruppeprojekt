@@ -125,8 +125,11 @@
       //hent det enlige parameter ud der hedder id
       const id = urlParams.get("id");
 
+      //hent url'en til vores restdb med dataen
+
       const url = "https://cdpassion-da18.restdb.io/rest/albums";
 
+      //variabel der skal modtage indeholde dataen for den enkelte post
       let album;
 
       const options = {
@@ -134,8 +137,11 @@
           "x-apikey": "620e328534fd621565858715",
         },
       };
+
+      //lytter efter om DOM er loaded inden hentData funktionen starter
       document.addEventListener("DOMContentLoaded", hentData);
 
+      //funktion der henter JSON data
       async function hentData() {
         console.log("hentdata");
         //sæt id fra url-parametrene ind i kald til restdb og modtag kun en post.
@@ -147,7 +153,7 @@
         vis();
       }
 
-      //tilføj tekst og billede til html ved at vælge de forskellige classes og tags
+      //tilføj tekst og billede fra json til html ved at vælge de forskellige classes og tags
       function vis() {
         document.querySelector(".billede").src =
           "AlbumCovers/" + album.Picture + ".png";
