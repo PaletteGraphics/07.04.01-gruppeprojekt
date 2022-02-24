@@ -132,10 +132,7 @@
         padding-right: 0.8rem;
         padding-top: 0.3rem;
         padding-bottom: 0.3rem;
-      }
-
-      .shop_button p {
-        font-size: clamp(1rem, 3vw, 1.4rem);
+        font-size: clamp(1rem, 3vw, 1.5rem);
       }
 
       /* DESKTOP________________________________________________________________ */
@@ -153,12 +150,10 @@
   <body>
     <header>
       <nav>
-        <ul id="hjem">
-          <a href="index.html" class="wrapper outline"> <li>HOME</li></a>
-        </ul>
-        <ul id="shopcartnav">
-          <a href="shop.html" class="wrapper outline"> <li>SHOP</li></a>
-          <a href="cart.html" class="wrapper outline"> <li>CART</li></a>
+        <ul>
+          <li><a href="index.html" class="wrapper outline"> HOME</a></li>
+          <li><a href="shop.html" class="wrapper outline"> SHOP</a></li>
+          <li><a href="cart.html" class="wrapper outline"> CART</a></li>
         </ul>
       </nav>
     </header>
@@ -200,7 +195,7 @@
       <section id="section_3">
         <div class="shop_button">
           <button onclick="location.href='shop.html'">
-            <p>SHOP YOUR FAVOURITE CD'S HERE!</p>
+            SHOP YOUR FAVOURITE CD'S HERE!
           </button>
         </div>
       </section>
@@ -217,9 +212,6 @@
       </div>
     </footer>
     <script>
-      // script lytter efter, om dom'en er loadet
-      document.addEventListener("DOMContentLoaded", start);
-
       // konstanter til json og template
       const url = "https://cdpassion-da18.restdb.io/rest/albums";
       const template = document.querySelector("template").content;
@@ -231,12 +223,16 @@
         },
       };
 
+      // script lytter efter, om dom'en er loadet
+      document.addEventListener("DOMContentLoaded", start);
+
+      // start-funktion der løber data
       function start() {
         console.log("start");
 
-        // henter data fra json
         hentData();
 
+        // funktion der fetcher json
         async function hentData() {
           const respons = await fetch(url, options);
           const json = await respons.json();
@@ -244,10 +240,11 @@
           vis(data);
         }
 
-        // viser data (linje 250), rydder containeren (linje 252)
+        // funktion der filtrerer igennem array og kloner indholdet i templaten
         function vis(data) {
           console.log("vis data");
           const container = document.querySelector(".liste");
+          // rydder containeren (linje 252)
           container.textContent = "";
           console.log(data);
           // for hvert array (linje 254) indsættes de forskellige objekter (linje 258-261) i templaten
@@ -271,6 +268,7 @@
         }
       }
 
+      // klik-funktion på .col
       function clickCd(x) {
         console.log("clickCd");
         location.href = `singleview.html?id=${x._id}`;
