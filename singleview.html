@@ -70,7 +70,7 @@
       }
       /*---billede padding---*/
 
-      .billede {
+      img {
         padding: 2rem;
       }
     </style>
@@ -79,12 +79,10 @@
     <!---Header-->
     <header>
       <nav>
-        <ul id="hjem">
-          <a href="index.html" class="wrapper outline"> <li>HOME</li></a>
-        </ul>
-        <ul id="shopcartnav">
-          <a href="shop.html" class="wrapper outline"> <li>SHOP</li></a>
-          <a href="cart.html" class="wrapper outline"> <li>CART</li></a>
+        <ul>
+          <li><a href="index.html" class="wrapper outline"> HOME</a></li>
+          <li><a href="shop.html" class="wrapper outline"> SHOP</a></li>
+          <li><a href="cart.html" class="wrapper outline"> CART</a></li>
         </ul>
       </nav>
     </header>
@@ -93,12 +91,11 @@
       <!---section 1-->
       <section id="section_1">
         <article class="col">
-          <img class="billede" src="" alt="" />
+          <img src="" alt="Billede af CD" />
         </article>
         <article class="col">
           <h2></h2>
-          <h3 class="txt"></h3>
-          <h4 class="genre"></h4>
+          <h3></h3>
           <p class="description"></p>
           <br />
           <p class="price"></p>
@@ -107,7 +104,7 @@
         </article>
       </section>
     </main>
-    <!---footer--->
+    <!---footer-->
     <footer>
       <div class="footer_col_1">
         <p>Guldbergsgade 29N 2200 København N</p>
@@ -155,11 +152,11 @@
 
       //tilføj tekst og billede fra json til html ved at vælge de forskellige classes og tags
       function vis() {
-        document.querySelector(".billede").src =
+        document.querySelector("img").src =
           "AlbumCovers/" + album.Picture + ".png";
         document.querySelector("h2").textContent =
           album.Artist + " - " + album.Name;
-        document.querySelector(".genre").textContent = album.Genre;
+        document.querySelector("h3").textContent = album.Genre;
         document.querySelector(".price").textContent = album.Pris + ",- DKK";
         document.querySelector(".description").textContent = album.Description;
 
