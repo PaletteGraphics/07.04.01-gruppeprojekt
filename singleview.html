@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="ikoner/cdlogo.png" />
     <link rel="stylesheet" href="general.css" />
-        <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
 
     <title>Single-view</title>
     <style>
       /*----section----*/
-       #section_1 {
-          display: grid;
-          place-content: center;
-          text-align: left;
-          box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
-          background-color: rgba(255, 255, 255, 0.596);
-        }
+      #section_1 {
+        display: grid;
+        place-content: center;
+        text-align: left;
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
+        background-color: rgba(255, 255, 255, 0.596);
+      }
 
       @media (min-width: 800px) {
         #section_1 {
@@ -25,7 +25,7 @@
           grid-template-columns: 1fr 1fr;
           box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
           background-color: rgba(255, 255, 255, 0.596);
-          gap:20px;
+          gap: 20px;
         }
       }
 
@@ -34,24 +34,24 @@
         display: grid;
         place-content: center;
         text-align: left;
-        margin:1rem;
+        margin: 1rem;
       }
 
       /*----knapper----*/
 
       #buy {
-      color: black;
-      cursor: pointer;
-      border: 2px solid #a7bbff;
-      margin-right: 10px;
-      font-size: 1rem;
-      margin-bottom: 30px;
-      padding-left: 0.2rem;
-      padding-right: 0.2rem;
-      padding-top: 0.3rem;
-      padding-bottom: 0.3rem;
-      width: 200px;
-      border-radius: 5px;
+        color: black;
+        cursor: pointer;
+        border: 2px solid #a7bbff;
+        margin-right: 10px;
+        font-size: 1rem;
+        margin-bottom: 30px;
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+        width: 200px;
+        border-radius: 5px;
       }
 
       #buy:hover {
@@ -73,7 +73,6 @@
       .billede {
         padding: 2rem;
       }
-      
     </style>
   </head>
   <body>
@@ -94,16 +93,16 @@
       <!---section 1-->
       <section id="section_1">
         <article class="col">
-          <img class="billede" src="" alt=""></img>
+          <img class="billede" src="" alt="" />
         </article>
         <article class="col">
           <h2></h2>
           <h3 class="txt"></h3>
           <h4 class="genre"></h4>
           <p class="description"></p>
-          <br>
+          <br />
           <p class="price"></p>
-          <br>
+          <br />
           <button id="buy">ADD TO CART</button>
         </article>
       </section>
@@ -140,7 +139,10 @@
       async function hentData() {
         console.log("hentdata");
         //sæt id fra url-parametrene ind i kald til restdb og modtag kun en post.
-        const JSONdata = await fetch(`https://cdpassion-da18.restdb.io/rest/albums/${id}`, options);
+        const JSONdata = await fetch(
+          `https://cdpassion-da18.restdb.io/rest/albums/${id}`,
+          options
+        );
         album = await JSONdata.json();
         vis();
       }
@@ -149,7 +151,8 @@
       function vis() {
         document.querySelector(".billede").src =
           "AlbumCovers/" + album.Picture + ".png";
-        document.querySelector("h2").textContent = album.Artist + " - " + album.Name;
+        document.querySelector("h2").textContent =
+          album.Artist + " - " + album.Name;
         document.querySelector(".genre").textContent = album.Genre;
         document.querySelector(".price").textContent = album.Pris + ",- DKK";
         document.querySelector(".description").textContent = album.Description;
