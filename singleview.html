@@ -97,8 +97,7 @@
         </article>
         <article class="col">
           <h2></h2>
-          <h3 class="txt"></h3>
-          <h4 class="genre"></h4>
+          <h3></h3>
           <p class="description"></p>
           <br />
           <p class="price"></p>
@@ -159,7 +158,7 @@
           "AlbumCovers/" + album.Picture + ".png";
         document.querySelector("h2").textContent =
           album.Artist + " - " + album.Name;
-        document.querySelector(".genre").textContent = album.Genre;
+        document.querySelector("h3").textContent = album.Genre;
         document.querySelector(".price").textContent = album.Pris + ",- DKK";
         document.querySelector(".description").textContent = album.Description;
 
