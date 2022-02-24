@@ -56,6 +56,7 @@
 
       #buy:hover {
         background-color: #a7bbff;
+        color: white;
       }
 
       #back_button {
@@ -67,6 +68,7 @@
 
       .col {
         line-height: 2rem;
+        gap: 10px;
       }
       /*---billede padding---*/
 
@@ -100,7 +102,9 @@
           <br />
           <p class="price"></p>
           <br />
-          <button id="buy">ADD TO CART</button>
+          <button id="buy" onclick="location.href='cart.html'">
+            ADD TO CART
+          </button>
         </article>
       </section>
     </main>
