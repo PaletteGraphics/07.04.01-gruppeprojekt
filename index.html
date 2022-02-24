@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A-CD</title>
-    <link rel="shortcut icon" type="image/png" href="ikoner/favikon.png" />
+    <link rel="shortcut icon" type="image/png" href="ikoner/acdlogofinal.svg" />
     <link rel="stylesheet" href="general.css" />
     <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
     <style>
@@ -26,7 +26,7 @@
 
       /* ______________________________________section 1 (mobile) */
 
-      #text_1 #section_1 img {
+      #section_1 img {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -35,9 +35,45 @@
         /* animationen kommer fra https://animista.net
         har brugt det til animation af splashlogoet på forsiden*/
         animation-name: bounce_in;
-        animation-duration: 2.8s;
-        animation-timing-function: linear;
+        animation-duration: 2.5s;
         animation-fill-mode: both;
+      }
+
+      @keyframes bounce_in {
+        0% {
+          transform: translateY(-500px);
+          animation-timing-function: ease-in;
+          opacity: 0;
+        }
+        38% {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+          opacity: 1;
+        }
+        55% {
+          transform: translateY(-65px);
+          animation-timing-function: ease-in;
+        }
+        72% {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+        }
+        81% {
+          transform: translateY(-28px);
+          animation-timing-function: ease-in;
+        }
+        90% {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+        }
+        95% {
+          transform: translateY(-8px);
+          animation-timing-function: ease-in;
+        }
+        100% {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+        }
       }
 
       #section_1 p {
@@ -135,9 +171,9 @@
         <div>
           <p>
             <b>
-              Choose and pick your all time favourite albums in between our
-              selection of music. <br />
-              We offer 5 different genres from pop and R&B to country and rock.
+              Discover the new world of old cd’s. Take a look inside our shop,
+              and return to the old school way of listening to your favourite
+              music!
             </b>
           </p>
         </div>
@@ -154,8 +190,8 @@
         <article class="cd">
           <div class="col">
             <img src="" alt="" />
-            <h3 class="Name"></h3>
-            <h4 class="Pris"></h4>
+            <h2></h2>
+            <h3></h3>
           </div>
         </article>
       </template>
@@ -208,20 +244,24 @@
           vis(data);
         }
 
+        // viser data (linje 250), rydder containeren (linje 252)
         function vis(data) {
           console.log("vis data");
           const container = document.querySelector(".liste");
           container.textContent = "";
           console.log(data);
+          // for hvert array (linje 254) indsættes de forskellige objekter (linje 258-261) i templaten
           data.forEach((album) => {
             console.log(album.Popular_Releases);
             if (album.Popular_Releases != false) {
               const klon = template.cloneNode(true);
               klon.querySelector("img").src =
                 "AlbumCovers/" + album.Picture + ".png";
-              klon.querySelector("h3").textContent = album.Name;
-              klon.querySelector("h4").textContent = album.Artist;
+              klon.querySelector("h2").textContent = album.Name;
+              klon.querySelector("h3").textContent = album.Artist;
 
+              // tilføjer en eventlistener til .col, der vil lytte efter klik
+              // og endvidere åbne singleview.html
               klon
                 .querySelector(".col")
                 .addEventListener("click", () => clickCd(album));
