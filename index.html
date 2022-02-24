@@ -112,6 +112,7 @@
         padding-top: 20px;
       }
 
+      /* sætter grid på min liste, så den er responsiv */
       .liste {
         display: grid;
         gap: 30px;
@@ -135,7 +136,7 @@
         font-size: clamp(1rem, 3vw, 1.5rem);
       }
 
-      /* DESKTOP________________________________________________________________ */
+      /* DESKTOP___________________________________________ */
       @media (min-width: 700px) {
         #splash_logo img {
           width: 70%;
@@ -253,7 +254,7 @@
             if (album.Popular_Releases != false) {
               const klon = template.cloneNode(true);
               klon.querySelector("img").src =
-                "AlbumCovers/" + album.Picture + ".png";
+                "AlbumCovers/" + album.Picture + ".webp";
               klon.querySelector("h2").textContent = album.Name;
               klon.querySelector("h3").textContent = album.Artist;
 

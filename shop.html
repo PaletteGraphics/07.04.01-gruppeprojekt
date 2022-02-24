@@ -9,99 +9,99 @@
     <link rel="stylesheet" href="https://use.typekit.net/hqo5nbw.css" />
 
     <title>SHOP</title>
+    <style>
+      /* Sætter et responsivt grid på min liste */
+      .liste {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 40px;
+      }
+
+      /* Centrerer teksten i filterknapper */
+      .knapcontainer {
+        text-align: center;
+      }
+
+      /* Styling af filterknapper */
+      #filter_knapper button {
+        background: none;
+        color: inherit;
+        cursor: pointer;
+        border: 2px solid;
+        margin-right: 30px;
+        font-size: 1rem;
+        margin-bottom: 30px;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+      }
+
+      /* Hovereffect */
+      #filter_knapper button:hover {
+        transform: scale(1.2);
+        border: none;
+        cursor: pointer;
+        border: 2px solid;
+      }
+
+      /* Effekt, der viser hvilken kategori, som er valgt */
+      .valgt {
+        transform: scale(1.2);
+      }
+
+      /* Styler articler og tilføjer grid */
+      article {
+        display: grid;
+        margin-bottom: 5px;
+        padding: 10px;
+        transition: 0.3s;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      /* Hover effect på artiklerne */
+      article:hover {
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
+        background-color: rgba(255, 255, 255, 0.596);
+        cursor: pointer;
+      }
+
+      /* Margin på overskrifter */
+      article h1,
+      h2,
+      p {
+        margin: 1%;
+      }
+
+      footer p {
+        margin: 0%;
+      }
+
+      /* Margin på billeder i artiklen */
+      article img {
+        margin-bottom: 10%;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 4vw, 5rem);
+        margin-bottom: 2rem;
+      }
+
+      #section_1 {
+        padding-top: 3rem;
+      }
+
+      #text {
+        font-size: clamp(0.7rem, 3vw, 1.2rem);
+        line-height: 2rem;
+      }
+
+      #h1_p {
+        text-align: center;
+      }
+    </style>
   </head>
-  <style>
-    /* Sætter et responsivt grid på min liste */
-    .liste {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 40px;
-    }
-
-    /* Centrerer teksten i filterknapper */
-    .knapcontainer {
-      text-align: center;
-    }
-
-    /* Styling af filterknapper */
-    #filter_knapper button {
-      background: none;
-      color: inherit;
-      cursor: pointer;
-      border: 2px solid;
-      margin-right: 30px;
-      font-size: 1rem;
-      margin-bottom: 30px;
-      padding-left: 0.8rem;
-      padding-right: 0.8rem;
-      padding-top: 0.3rem;
-      padding-bottom: 0.3rem;
-    }
-
-    /* Hovereffect */
-    #filter_knapper button:hover {
-      transform: scale(1.2);
-      border: none;
-      cursor: pointer;
-      border: 2px solid;
-    }
-
-    /* Effekt, der viser hvilken kategori, som er valgt */
-    .valgt {
-      transform: scale(1.2);
-    }
-
-    /* Styler articler og tilføjer grid */
-    article {
-      display: grid;
-      margin-bottom: 5px;
-      padding: 10px;
-      transition: 0.3s;
-      border-radius: 5px;
-      text-align: center;
-    }
-
-    /* Hover effect på artiklerne */
-    article:hover {
-      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.637);
-      background-color: rgba(255, 255, 255, 0.596);
-      cursor: pointer;
-    }
-
-    /* Margin på overskrifter */
-    article h1,
-    h2,
-    p {
-      margin: 1%;
-    }
-
-    footer p {
-      margin: 0%;
-    }
-
-    /* Margin på billeder i artiklen */
-    article img {
-      margin-bottom: 10%;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 4vw, 5rem);
-      margin-bottom: 2rem;
-    }
-
-    #section_1 {
-      padding-top: 3rem;
-    }
-
-    #text {
-      font-size: clamp(0.7rem, 3vw, 1.2rem);
-      line-height: 2rem;
-    }
-
-    #h1_p {
-      text-align: center;
-    }
-  </style>
   <body>
     <header>
       <!-- Navigation med classes -->
